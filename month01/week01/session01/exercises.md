@@ -13,3 +13,11 @@ cd git-practice
 1. echo "Git Practice"> README.md 
 2. git status
 3. git add . 
+4. git status
+5. git commit -m "test1" 
+6. git log 
+<!-- exercise 04 -->
+1. touch index.html style.css script.js
+2. git add .
+3. git status 
+4. git commit -m "     " 
