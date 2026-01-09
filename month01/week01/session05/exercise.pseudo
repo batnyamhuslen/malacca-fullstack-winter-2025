@@ -1,0 +1,140 @@
+//exercise 01
+BEGIN
+    INPUT a
+    input b 
+    set sum = a+b 
+    output sum
+end 
+//exercise 02 
+begin 
+  INPUT number
+  IF num %2 == 0 then
+     OUTPUT "TEGSH "number
+ELSE 
+    OUTPUT "SONDGOI"number
+  END IF 
+END 
+
+//exercise 03
+
+BEGIN 
+    INPUT a, b, c
+    SET max = A
+    IF b > max THEN 
+       SET max = b 
+end if 
+    IF c > max THEN 
+    SET max = c 
+end IF 
+OUTPUT max 
+end 
+// exercise 04 
+BEGIN 
+   INPUT n
+ SET sum = 0
+ for i = 1 to n 
+   SET sum=sum+1
+end for 
+output sum 
+end 
+
+//exercise 05
+BEGIN 
+   INPUT n 
+   SET factorial = 1
+   FOR i = 1 to n 
+      SET factorial = factorial*i 
+end for 
+output factorial
+end 
+//exercise 06
+set score to 75
+if score >=90 then
+  OUTPUT "GRADE A"
+ELSE IF score >=80
+  OUTPUT "GRADE B"
+ELSE IF score >=70
+  OUTPUT "GRADE C"
+ELSE IF score >=60
+  output "GRADE D"
+ELSE IF score >=59
+  output "grade f"
+end if
+//exercise 07
+BEGIN 
+  INPUT num 
+  SET reversed = 0
+  while num > 0 
+    set digit =num MOD 10
+    SET reversed = reversed *10+ digit
+    SET num = num DIV 10
+end while 
+output reversed
+end 
+//exercise 08 
+BEGIN
+    INPUT n
+    IF n <= 1 THEN
+        OUTPUT "Анхны тоо биш"
+    ELSE
+        SET isPrime = TRUE
+        FOR i = 2 TO n - 1
+            IF n    i == 0 THEN
+                SET isPrime = FALSE 
+            END IF
+        END FOR
+        IF isPrime == TRUE THEN
+            OUTPUT "Анхны тоо мөн"
+        ELSE
+            OUTPUT "Анхны тоо биш"
+        END IF
+    END IF
+END
+//exercise 09
+BEGIN
+    INPUT N
+    SET a = 0
+    SET b = 1
+    OUTPUT a
+    OUTPUT b
+    FOR i = 3 TO N
+        SET c =a + b
+        OUTPUT c
+        SET a = b
+        SET b = c
+    END FOR
+END
+//exercise 10 
+BEGIN 
+  INPUT decimal
+  SET binary = " "
+  SET num = decimal
+  WHILE num > 0 
+     SET remainder = num  MOD 2 
+     SET binary = remainder + binary
+     SET num = num DIV 2 
+end while
+OUTPUT binary
+end 
+//exercise 11 
+BEGIN
+    SET correctUser = "admin"
+    SET correctPass = "1234"
+    SET attempts = ____
+    SET maxAttempts = ____
+
+    WHILE attempts < maxAttempts
+        INPUT username
+        INPUT password
+
+        IF username == ____ AND password == ____ THEN
+            OUTPUT "Амжилттай нэвтэрлээ"
+            ____
+        ELSE
+            SET attempts = attempts + ____
+            OUTPUT "Буруу байна. Үлдсэн оролдлого: " + (maxAttempts - ____)
+        END IF
+    END WHILE
+
+    OUTPUT "____"
+END
