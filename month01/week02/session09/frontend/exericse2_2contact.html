@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Холбоо барих</h1>
+    <form action="./exericse2_2contact.html" method="POST"></form>
+    <div>
+        <label for="name">Нэр:</label>
+        <input type="text" id="name" name="name" placeholder="Таны нэр">
+    </div>
+    <div>
+        <label for="email">И-мэйл:</label><br>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="subject">Сэдэв:</label><br>
+        <select name="subject" id="subject">
+            <option value="select">Сонгоно уу</option>
+            <option value="general">Ерөнхий асуулт</option>
+            <option value="support">Тусламж</option>
+            <option value="feedback">Санал хүсэлт</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="message">Мессеж:</label><br>
+        <textarea name="message" id="message" rows="5" cols="40" placeholder="Мессежээ бичнэ үү..." ></textarea>
+    </div>
+    <button type="submit">Илгээх</button>
+</body>
+</html>

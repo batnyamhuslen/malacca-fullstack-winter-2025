@@ -120,21 +120,94 @@ end
 BEGIN
     SET correctUser = "admin"
     SET correctPass = "1234"
-    SET attempts = ____
-    SET maxAttempts = ____
+    SET attempts = 0
+    SET maxAttempts = 3
 
     WHILE attempts < maxAttempts
         INPUT username
         INPUT password
 
-        IF username == ____ AND password == ____ THEN
+        IF username == correctUser AND password == correctPass THEN
             OUTPUT "Амжилттай нэвтэрлээ"
-            ____
+            BREAK 
         ELSE
             SET attempts = attempts + ____
-            OUTPUT "Буруу байна. Үлдсэн оролдлого: " + (maxAttempts - ____)
+            OUTPUT "Буруу байна. Үлдсэн оролдлого: " + (maxAttempts - attempts)
         END IF
     END WHILE
 
-    OUTPUT "____"
+    OUTPUT "Хэт олон удаа буруу оролдлоо. Нэвтрэх эрх хаагдлаа"
+END
+//exercise 12
+BEGIN
+    INPUT password
+    SET isValid = TRUE
+    SET errors = ""
+
+    IF LENGTH(password) <  8 THEN
+        SET isValid = FALSE
+        SET errors = errors + "8-с дээш тэмдэгт байх ёстой. "
+    END IF
+
+    SET hasUppercase = FALSE
+    FOR EACH char IN password
+        IF char >= 'A' AND char <= 'Z' THEN
+            SET hasUppercase = TRUE
+        END IF
+    END FOR
+
+    IF hasUppercase == FALSE THEN
+        SET isValid = FALSE
+        SET errors = errors + "Том үсэг байх ёстой. "
+    END IF
+
+    SET hasNumber = FALSE
+    FOR EACH char IN password
+        IF char >= '0' AND char <= '9' THEN
+            SET hasNumber = TRUE
+        END IF
+    END FOR
+
+    IF hasNumber == FALSE THEN
+        SET isValid = FALSE
+        SET errors = errors + "Тоо байх ёстой. "
+    END IF
+
+    IF isValid == TRUE THEN
+        OUTPUT "Хүчтэй"
+    ELSE
+        OUTPUT "Сул: " + errors
+    END IF
+END
+//exercise 13
+BEGIN
+    SET total = 0
+    SET ordering = TRUE
+
+    WHILE ordering == ____
+        OUTPUT "=== MENU ==="
+        OUTPUT "1. Бууз - 5000"
+        OUTPUT "2. Хуушуур - 3000"
+        OUTPUT "3. Цуйван - 8000"
+        OUTPUT "4. Гарах"
+
+        INPUT choice
+
+        IF choice == 1 THEN
+            OUTPUT "Бууз захиаллаа"
+            SET total = total + ____
+        ELSE IF choice == 2 THEN
+            OUTPUT "Хуушуур захиаллаа"
+            SET total = total + ____
+        ELSE IF choice == ____ THEN
+            OUTPUT "Цуйван захиаллаа"
+            SET total = total + 8000
+        ELSE IF choice == ____ THEN
+            SET ordering = ____
+        ELSE
+            OUTPUT "Буруу сонголт"
+        END IF
+    END WHILE
+
+    OUTPUT "Нийт дүн: " + ____ + " tugrug"
 END

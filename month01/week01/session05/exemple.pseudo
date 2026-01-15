@@ -1,0 +1,73 @@
+// exemple 01
+OUTPUT "Hello, World"
+
+//example 02 -Variables
+SET name TO "Alice"
+SET age TO 15
+OUTPUT name
+OUTPUT age
+
+//exemple 03 -input
+OUTPUT "what is your name"
+input name
+OUTPUT "hello," + name
+
+//exemple 04 arithmetic operation
+SET a to 10
+SET b to 5
+set sum TO a+b
+set difference to a - b
+set product to a*b 
+set division to a/b
+OUTPUT sum //15 
+//write other operation
+
+//exemple 05 -simple decision
+set temperature to 30
+if temperature > 25 then
+OUTPUT "its hot today"
+end if 
+
+//exemple 06 two choise
+set age to 16 
+if age >=18 then
+   OUTPUT "you can vote"
+
+else
+    OUTPUT "you cannot vote yet"
+end if
+
+//example 07 if else (multi choise)
+set score to 75
+if score >=90 then
+  OUTPUT "GRADE A"
+ELSE IF score >=80
+  OUTPUT "GRADE B"
+ELSE IF score >=70
+  OUTPUT "GRADE C"
+ELSE IF score >=60
+  output "GRADE D"
+ELSE IF score >=59
+  output "grade f"
+end if
+
+//exemple 08  while loop
+set counter to 1
+
+while counter to 1
+   output counter
+   set counter to counter +1
+end while 
+
+//exemple 09 for loop (repeat a set number of times)
+for i from 1 to 5 DO 
+  output "hello" + i 
+end for 
+
+//example 10 function (reusable code block)
+function greet(name)
+   output "Hello," + name + "!"
+end function
+
+call greet("Bob")
+call greet("alice")
