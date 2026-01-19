@@ -1,0 +1,34 @@
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+ul{
+    width: 500px;
+    margin: auto;
+}
+
+li {
+    display: inline;
+    margin-left: 30px;
+    border-left: 2px solid black;
+    padding: 10px;
+}
+
+li:first-of-type {
+    border-left: none;
+}
+
+li a{ 
+    text-decoration: none;   
+} 
+
+section img{
+    width: 300;
+    height: 300;
+}
+
+

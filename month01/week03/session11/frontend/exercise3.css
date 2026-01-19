@@ -1,0 +1,22 @@
+*{
+    color: black;background-color: aqua; 
+    font-size: 100px;
+    font: italic;
+}
+
+body{
+    color: brown;
+}
+
+header{
+    background-color: blueviolet;
+    color: blue;
+
+}
+.warning{
+   background-color: rgb(255,255,0,0.5);
+}
+
+a{
+    color: blue;
+}
