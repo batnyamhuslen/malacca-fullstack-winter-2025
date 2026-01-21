@@ -17,7 +17,5 @@ public class Ex3 {
         if (!loggedIn) {
             System.out.println("newtreh");
         }
-
-
     }
 }

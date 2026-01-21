@@ -1,0 +1,15 @@
+.red-named{
+    color: red;
+}
+
+.green-hex{
+    color: green;
+}
+
+.blue-rbg{
+    color: rgb(red, green, blue);
+}
+
+.black-transparent{
+    background-color: rgba(red, green, blue, 0.3);
+}

@@ -1,0 +1,14 @@
+h1{
+    font-size: 32px;
+    font-style: bold;
+    text-align: center;
+}
+
+p{
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a{
+    text-decoration: none;
+}
