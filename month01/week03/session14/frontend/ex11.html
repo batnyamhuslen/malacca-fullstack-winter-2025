@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid #333;
+    background-color: #f0f0f0;
+}
+
+/* Default: content-box */
+.content-box-example {
+    box-sizing: content-box;  /* content-box */
+}
+/* Нийт өргөн = 300 + 20*2 + 5*2 = _____ px */
+
+/* border-box */
+.border-box-example {
+    box-sizing: border-box;  /* border-box */
+}
+/* Нийт өргөн = яг _____ px */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box content-box-example">
+        content-box (default)
+    </div>
+    <div class="box border-box-example">
+        border-box
+    </div>
+</div>
+</body>
+</html>

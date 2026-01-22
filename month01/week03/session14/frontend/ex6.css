@@ -1,0 +1,24 @@
+.blog-post {
+    width: 600px;
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif,; 
+}
+
+.title {
+    font-size: 32px;   
+    font-weight: bold;     
+    color: #222;       
+    margin-bottom: 10px;
+}
+
+.meta {
+    font-size: 14px;      
+    color: #888;            
+    font-style: italic;        
+}
+
+.content {
+    font-size: 18px;         
+    line-height: 1.8px;       
+    color: #444;            
+}

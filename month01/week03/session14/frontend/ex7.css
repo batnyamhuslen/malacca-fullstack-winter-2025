@@ -1,0 +1,19 @@
+.nav-link{
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-link:hover{
+    text-decoration: none;
+}
+
+.strikethrough{
+    color: #999;
+    font-weight: bold;
+}
+
+.new-price{
+    color: red;
+    font-weight: bold;
+}

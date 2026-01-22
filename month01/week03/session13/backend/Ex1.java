@@ -16,6 +16,6 @@ public class Ex1 {
         for (int i=1;i<=50;i++){
             sum=sum+1;
         }
-        System.out.println("1-50 niilber"+sum);
+        System.out.println("1-50 niilber"+sum2);
     }
 }

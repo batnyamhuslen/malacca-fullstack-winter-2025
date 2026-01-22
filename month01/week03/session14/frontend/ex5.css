@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 50px 0;
+}
+
+.centered-box {
+    width: 400px;          
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
+
+    /* Хэвтээ голд байрлуулах */
+    margin: auto;    
+
+    text-align: center;
+}
