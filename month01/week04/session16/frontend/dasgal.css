@@ -1,0 +1,30 @@
+
+.full-width {
+    display: block;
+    background-color: orange;
+    width: 100px;
+    border: 20px;
+    border-radius: 10px;
+
+}
+
+
+.inline-text {
+    display: inline;
+}
+
+
+.button {
+    display: inline-block;
+    width: 150px;
+}
+
+
+.hide-completely {
+    display: none;
+}
+
+
+.hide-but-keep-space {
+    visibility: hidden;
+}

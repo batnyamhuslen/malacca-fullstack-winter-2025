@@ -1,0 +1,94 @@
+.box01{
+    width: 300px;
+    height: 300px;
+    background: red;
+    border: 1px solid green;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.anchor-element{
+    margin: 20px;
+    background-color: aqua;
+}
+
+.box02{
+    width: 200px;
+    height: 200px;
+    border: 2px solid tomato;
+    font-size: 30px;
+    color: #fff;
+    background-color: blueviolet;
+    position: relative;
+    top: 30px;
+
+}
+
+.parent{
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+    margin-top: 40px;
+    position: relative;
+}
+
+.child{
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+    position: absolute;
+    bottom: 30%;
+    right: 30%;
+}
+
+ul{
+    max-width: 500px;
+    height: 100px;
+    background-color: turquoise;
+    color: black;
+    margin: 0 auto;
+    display: inline-block;
+   position: fixed;
+   top: 0;
+   left: 30%;
+}
+
+ul li {
+    background-color: violet;
+    display:inline-block;
+    height: 50px;
+    width: 60px;
+    position: relative;
+    top: 24%;
+}
+
+ul li #home{
+    left: 10%;
+}
+ul li #about{
+    left: 20%;
+}
+ul li #contact{
+    left: 30%;
+}
+ul li #team{
+    left: 35%;
+}
+
+.sticky{
+    background-color: rgb(116, 181, 29);
+    bottom: 20px;
+    cursor: pointer;
+    height: 40px;
+    opacity: 0.5;
+    position: sticky;
+    right: 20px;
+    text-align: center;
+    width: 40px;
+    z-index: 90000; 
+    border-radius: 4px;
+}

@@ -1,0 +1,28 @@
+.card{
+    
+    background-color: brown;
+    position: absolute;
+    width: 300px;
+}
+
+.badge{
+    background-color: red;
+    position: relative;
+    top: 0;
+    right: 1%;
+}
+
+.header{
+    background-color: blue;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 200px;
+    z-index: 9000;
+}
+
+.shifted{
+    background-color: black;
+    position: relative;
+    top: 10px;
+}
