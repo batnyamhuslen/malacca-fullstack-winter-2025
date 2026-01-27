@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.container {
+    background-color: #ecf0f1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.box {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    margin: 5px;
+}
+
+/* Inline: Мөр дотор, width ажиллахгүй */
+.box-inline {
+    display:150px ;
+    /* width: 150px;  <-- Ажиллахгүй! */
+}
+
+/* Block: Шинэ мөрөнд, 100% өргөн */
+.box-block {
+    display:block;
+    width: 200px;
+}
+
+/* Inline-block: Мөр дотор + width ажиллана */
+.box-inline-block {
+    display: inline-block;
+    width: 100px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <span class="box box-inline">Inline 1</span>
+    <span class="box box-inline">Inline 2</span>
+    <span class="box box-inline">Inline 3</span>
+</div>
+
+<div class="container">
+    <div class="box box-block">Block 1</div>
+    <div class="box box-block">Block 2</div>
+    <div class="box box-block">Block 3</div>
+</div>
+
+<div class="container">
+    <div class="box box-inline-block">Inline-Block 1</div>
+    <div class="box box-inline-block">Inline-Block 2</div>
+    <div class="box box-inline-block">Inline-Block 3</div>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,3 @@
-package month01.week04.session16.backend;
-
 public class Ex3 {
     public static void main(String[] args) {
         int [] numbers ={23,45,12,67,34,89,5};
