@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./float02.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clearfix Exercises</h1>
+
+        <h2>Problem</h2>
+
+        <p class="description">
+            this container is not shown (height:0)
+        </p>
+
+        <div class="gallery-broken">
+            <div class="box">box 1</div>
+            <div class="box">box 2</div>
+            <div class="box">box 3</div>
+            <div class="box">box 4</div>
+        </div>
+
+        <p class="after-box broken">
+            this text is positioned wrong.
+        </p>
+
+        <h1>Solution: clearfix usage</h1>
+        <p class="description">
+            after clearfix class added the problem will be solved.
+        </p>
+        
+        <div class="gallery clearfix">
+            <div class="box">box 1 </div>
+            <div class="box">box 2 </div>
+            <div class="box">box 3 </div>
+            <div class="box">box 4 </div>
+        </div>
+
+        <p class="after-box fixed">
+            This text is now positioned correctly.
+        </p>
+
+    </div>
+</body>
+</html>
