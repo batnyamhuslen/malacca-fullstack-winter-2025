@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery {
+    background: #3498db;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+.clearfix::after{
+    content: "";             /* Хоосон content */
+    display: block;          /* Block болгох */
+    clear: both;             /* Бүх float-ийг clear */
+}
+
+.gallery-item {
+    float: left;             /* Зэрэгцүүлэн байрлуулах */
+    width: calc(25% - 15px);
+    margin: 7.5px;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+}
+
+.gallery-item img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.after-gallery {
+    background: #2ecc71;
+    padding: 15px;
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="gallery clearfix">
+    <div class="gallery-item">
+        <img src="https://picsum.photos/150/150?1" alt="Image 1">
+        <p>Image 1</p>
+    </div>
+    <div class="gallery-item">
+        <img src="https://picsum.photos/150/150?2" alt="Image 2">
+        <p>Image 2</p>
+    </div>
+    <div class="gallery-item">
+        <img src="https://picsum.photos/150/150?3" alt="Image 3">
+        <p>Image 3</p>
+    </div>
+    <div class="gallery-item">
+        <img src="https://picsum.photos/150/150?4" alt="Image 4">
+        <p>Image 4</p>
+    </div>
+</div>
+<p class="after-gallery">Энэ текст gallery-ийн доор байрлана.</p>
+</body>
+</html>

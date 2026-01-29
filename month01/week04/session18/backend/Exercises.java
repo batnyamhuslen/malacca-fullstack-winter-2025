@@ -12,7 +12,7 @@ public class Exercises {
         System.out.println("sum"+ sum(numbers));
 
     }
-
+    
     public static void greet(String name){
         System.out.print("Hello" + name + "!");
     }
