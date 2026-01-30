@@ -13,55 +13,53 @@ public class Exer1 {
         System.out.println("        ТОО ТААХ ТОГЛООМ");
         System.out.println("=============================");
 
-       
         while (playAgian.equalsIgnoreCase("y")) {
 
-            int secretNumber = random.nextInt(100) + 1;  //1-100 iin hoorond random objectiin variable n 
-            int guess;      //buhel too turultei taawarin variable
-            int attempts = 0;    //oroldlogo buhen too n turultei  
+            int secretNumber = random.nextInt(100) + 1; // 1-100 iin hoorond random objectiin variable n
+            int guess; // buhel too turultei taawarin variable
+            int attempts = 0; // oroldlogo buhen too n turultei
 
-            System.out.println("1-100 хооронд тоо сонголоо. Таагаарai"); 
+            System.out.println("1-100 хооронд тоо сонголоо. Таагаарai");
 
-        //do while dawtalt ehleh heseg
-        do{
-            System.out.println("Таамаг оруулна уу:");
-            guess = scanner.nextInt();    //taawarin toog garas awah 
-            attempts++;    // oroldlogo nemed hadgalah
+            // do while dawtalt ehleh heseg
+            do {
+                System.out.println("Таамаг оруулна уу:");
+                guess = scanner.nextInt(); // taawarin toog garas awah
+                attempts++; // oroldlogo nemed hadgalah
 
-            
-            //taawariing too n garas awah toonos baga baih shalgah
-            if (guess<secretNumber) { 
-                System.out.println("Их тоо оруул!");
-            }else if (guess>secretNumber) {
-                System.out.println("Бага тоо оруул!");
+                // taawariing too n garas awah toonos baga baih shalgah
+                if (guess < secretNumber) {
+                    System.out.println("Их тоо оруул!");
+                } else if (guess > secretNumber) {
+                    System.out.println("Бага тоо оруул!");
+                }
+
+                // garas awsan too n taawrin tootoi tentsku bol DO hesgiig dawtana
+            } while (guess != secretNumber);
+            // taawrin too garas awsan too tentsuul hewlene
+            System.out.println("Зөв таалаа!");
+            System.out.println("Оролдлого:" + attempts); // ++attemps oroldlogo hadgalsang haruulna
+
+            // hadgalsan oroldlogoo 5aas, 10aas, baga baina uu gej shalgad hewleh (else
+            // busad ued hewleh n)
+            if (attempts <= 5) {
+                System.out.println("Маш сайн!");
+            } else if (attempts <= 10) {
+                System.out.println("Сайн!");
+            } else {
+                System.out.println("Дараа дахин оролд!");
             }
 
-        //garas awsan too n taawrin tootoi tentsku bol DO hesgiig dawtana
-        }while(guess != secretNumber); 
-        // taawrin too garas awsan too tentsuul hewlene 
-        System.out.println("Зөв таалаа!");
-        System.out.println("Оролдлого:"+ attempts);    //++attemps oroldlogo hadgalsang haruulna
+            // dawtaltan dotroo hewlej haruulad PlayAgian variabl n String turultei "y"
+            // hadgalsan
+            System.out.println("Дахин тоглох уу? (y/n)");
 
-
-        //hadgalsan oroldlogoo 5aas, 10aas, baga baina uu gej shalgad hewleh (else busad ued hewleh n)
-        if (attempts<=5) {
-            System.out.println("Маш сайн!"); 
-        }else if (attempts<=10){ 
-            System.out.println("Сайн!");
-        }else{
-            System.out.println("Дараа дахин оролд!");
+            // scaneraar whiliin ehni hesegruu shiljih
+            playAgian = scanner.next();
         }
-        
-        //dawtaltan dotroo hewlej haruulad PlayAgian variabl n String turultei "y" hadgalsan 
-        System.out.println("Дахин тоглох уу? (y/n)");
-        
-        //scaneraar whiliin ehni hesegruu shiljih 
-        playAgian = scanner.next(); 
-       }
 
-       //loopni gadaa main dotroo hewelsen n 
+        // loopni gadaa main dotroo hewelsen n
         System.out.println("Баярлалаа! Баяртай!");
         scanner.close();
     }
 }
-
