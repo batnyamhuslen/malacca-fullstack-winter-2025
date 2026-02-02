@@ -15,26 +15,38 @@ body{
 .card {
     width: 510px;
     height: 755px;
-    top: 113px;
-    left: 501px;
     background: #fff;
     border-radius: 64px;
-    overflow: hidden;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
 
 .card-header{
-    
+    position: relative;
+    height: 200px;
+   
+
 }
 .up-png{
-    width: 510px;
-    height: 139px;
-    top: 113px;
-    left: 501px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
     
 }
 
+.avatar{
+    position: absolute;
+    left: calc(50% - 80px);
+    top: 136px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    object-fit: cover;
+    background: #ccc;
+    z-index: 10;
+}
 .wave {
     position: absolute;
     bottom: -1px;
@@ -44,19 +56,38 @@ body{
     height: 156px;
     
 }
-
-.avatar{
-    position: absolute;
-    top: 136px;
-    left: 676px;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    border: 6px solid #fff;
-    object-fit: cover;
-    z-index: 2;
+.image1{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   
 }
-.card-header::after{
+
+.image2{
+      position: absolute;
+   bottom: 0;
+   left: 0;
+}
+.image3{
+     position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+.image4{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+.image5{
+    position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+
+/* .card-header::after{
     content: "";
     position: absolute;
     bottom: -30px;
@@ -66,21 +97,9 @@ body{
     height: 190px;
     background: white;
     border-radius: 50% 50% 0 0;
-}
+} */
 
-.avatar{
-    position: absolute;
-    left: 676px;
-    top: 136px;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 160px;
-    border-radius: 50px;
-    border: 6px solid #fff;
-    object-fit: cover;
-    background: #ccc;
-    z-index: 2000;
-}
+
 .card-body {
     padding: 70px 24px 28px;
 } 
