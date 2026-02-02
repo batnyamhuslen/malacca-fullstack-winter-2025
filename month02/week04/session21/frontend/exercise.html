@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .nav {
+            /* muriig udardah */
+            justify-content:space-between;  
+            display: flex;
+            align-items: flex-end;
+            background: #34495e;
+            padding: 15px 30px;
+           
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 200px;
+            height: 150px;
+            background: #3498db;
+            color: white;
+            /* Card content төвлөрүүлэх */
+        }
+
+        /* ДААЛГАВАР 3: Footer */
+        .footer {
+            /* Бүх элемент тэнцүү тарааx (space-evenly) */
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="logo">Logo</div>
+        <div class="links">Home | About | Contact</div>
+    </nav>
+
+    <div class="cards">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+    </div>
+
+    <footer class="footer">
+        <div>Privacy</div>
+        <div>Terms</div>
+        <div>Contact</div>
+    </footer>
+</body>
+
+</html>
