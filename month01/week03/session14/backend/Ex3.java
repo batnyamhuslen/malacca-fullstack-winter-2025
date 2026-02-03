@@ -6,11 +6,10 @@ public class Ex3 {
         int n = sc.nextInt();
 
         for(int i=1; i<=n;i=i+1){
-            
+
           if (i%2==0) {
             System.out.println(i+"tegsh");
           }
-
         }
         sc.close();
     }
