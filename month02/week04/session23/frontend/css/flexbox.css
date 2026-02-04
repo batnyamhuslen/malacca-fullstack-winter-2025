@@ -1,0 +1,11 @@
+.box{
+    height: 50px;
+    width: 100px;
+    background-color: blue;
+    color: white;
+}
+
+#flex-container{
+    
+    display: flex;
+}
