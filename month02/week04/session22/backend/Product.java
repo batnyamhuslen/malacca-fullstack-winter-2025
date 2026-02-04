@@ -6,7 +6,6 @@ public class Product {
     double calculateTotal() {
         return price * quantity;
     }
-
     void displayInfo() {
         System.out.println(name + " - " + (int) price + "₮ x " + quantity + " = " + (int) calculateTotal() + "₮");
     }
