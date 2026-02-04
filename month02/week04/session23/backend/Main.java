@@ -8,8 +8,6 @@ public class Main {
         chlovy.weight =3;
         //System.out.println(chlovy.getAgeacat());
 
-
-
         Animal Lion = new Animal();
         Lion.name = "Sinba";
         Lion.age = 10;
@@ -35,9 +33,7 @@ public class Main {
 
         System.out.println(dog.getAgeAnimal());
         System.out.println(dog.getColor());
-        dog.getname();
-
-        
+        System.out.println(dog.getColor());
 
     }
 
