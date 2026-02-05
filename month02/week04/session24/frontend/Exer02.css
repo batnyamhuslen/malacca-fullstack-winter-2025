@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    background: #f3f4f6;
+    font-family: system-ui, sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.profile-card {
+    width: 380px;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.role {
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.location {
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #e5e7eb;
+    margin: 25px 0;
+}
+
+.profile-stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-item strong {
+    font-size: 18px;
+}
+
+.profile-actions {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.profile-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.follow {
+    background: #2563eb;
+    color: white;
+}
+
+.message {
+    background: #e5e7eb;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 500;
+}
