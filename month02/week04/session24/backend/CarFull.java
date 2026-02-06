@@ -24,7 +24,6 @@ public class CarFull {
         Scanner scanner = new Scanner(System.in);
         Car myCar = new Car();
 
-        // User input for car properties
         System.out.print("Машины брэнд оруулна уу: ");
         myCar.setBrand(scanner.nextLine());
 
@@ -34,11 +33,10 @@ public class CarFull {
         System.out.print("Машины үйлдвэрлэсэн он оруулна уу: ");
         myCar.setYear(scanner.nextInt());
 
-        myCar.setCurrentSpeed(0); // эхлээд зогсож байна
+        myCar.setCurrentSpeed(0);
 
         myCar.displayInfo();
 
-        // Accelerate
         System.out.print("Хурдаа нэмэх (км/ц) оруулна уу: ");
         int speedIncrease = scanner.nextInt();
         myCar.accelerate(speedIncrease);
@@ -47,7 +45,6 @@ public class CarFull {
         speedIncrease = scanner.nextInt();
         myCar.accelerate(speedIncrease);
 
-        // Brake
         System.out.print("Хурд сааруулах (км/ц) оруулна уу: ");
         int speedDecrease = scanner.nextInt();
         myCar.brake(speedDecrease);
