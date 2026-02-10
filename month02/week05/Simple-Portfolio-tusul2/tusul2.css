@@ -7,6 +7,11 @@ body {
     font-family: Arial, Helvetica, sans-serif
 }
 
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
 h2 {
     font-weight: 700px;
     font-size: 64px;
@@ -79,7 +84,7 @@ p {
 main {
     padding: 0 65px;
 }
-
+/* 1 */
 .page1-text {
     display: flex;
     justify-content: space-between;
@@ -109,7 +114,7 @@ main {
     font-size: 20px;
     font-weight: 700;
 }
-
+/* 2 */
 .page2-text {
     display: flex;
     justify-content: space-between;
@@ -118,10 +123,12 @@ main {
 }
 
 .right-page2 {
+    text-align: end;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    
 
 }
 
@@ -138,10 +145,12 @@ main {
     border: 1px solid;
     font-size: 20px;
     font-weight: 700;
-}
 
+    
+}
+/* 3 */
 .page3-text {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -149,56 +158,82 @@ main {
     gap: 20px;
     height: 343px;
 }
-
+/* 4 */
 .page4-cards {
     height: 893px;
     display: flex;
     gap: 30px;
-    justify-content:center;
+    justify-content:space-between;
+    margin-top: 250px;
+
 }
 
-.card1 {
+.card {
     width: 382px;
     height: 485px;
     border: 3px solid #75C310;
     border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    display: flex;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    padding: 20px;
+    text-align: center;
+    flex: 0 0 382px;
+    flex-basis: 382px;
 }
-.card1 img{
-
+.people-img{
+    position: relative;
+    left: 78px;
+    top: -120px;
+    width: 100px;
 }
-
-.card2 {
-    width: 382px;
-    height: 485px;
-    border: 3px solid #75C310;
-    border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    display: flex;
+.card h3{
+    margin-top: -70px;
 }
-.card2 img{
-    
-}
-
-.card3 {
-    width: 382px;
-    height: 485px;
-    border: 3px solid #75C310;
-    border-radius: 22px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    display: flex; 
-}
-.card3 img{
-    
-}
-.paragraph-card{
-    font-weight: 400px;
+.card p{
+    font-weight: 400;
     font-size: 16px;
-    
+    padding: 20px;
+ 
 }
-.paragraph-ceo{
-    font-weight: 400px;
-    font-style: italic;
-    font-size: 14px;
+.ceo-p{
+   font-weight:400;
+   font-style: italic;
+   font-size: 14px;
+   margin-top: 120px;
 }
+/* 5 */
+footer{
+    background-color:#75C310;
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    text-align: end;
+}
+.footer-text{
+     margin: 100px;
+} 
+.footer-text h4{
+    font-weight: 700;
+    font-size: 24px;
+}
+.footer-text p{
+    font-weight: 400;
+    font-size: 20px;
+}
+.back-home-buttom{
+    background-color: white;
+    color: #3F6333;
+    border-radius:29px;
+    width: 161px;
+    height: 48px;
+    border:  0.1px solid white;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 90px;
+}
+.footer-p{
+    margin-top: 50px;
+}
+
+
+
+

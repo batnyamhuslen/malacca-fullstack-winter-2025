@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Span</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { padding: 20px; }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .photo {
+            height: 200px;
+            background-color: #95a5a6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .photo.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+            background-color: #e74c3c;
+        }
+</style>
+</head>
+<body>
+    <div class="gallery">
+        <div class="photo">1</div>
+        <div class="photo">2</div>
+        <div class="photo featured">3 (Featured 2x2)</div>
+        <div class="photo">4</div>
+        <div class="photo">5</div>
+        <div class="photo">6</div>
+        <div class="photo">7</div>
+    </div>
+</body>
+</html>

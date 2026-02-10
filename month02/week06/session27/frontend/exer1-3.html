@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Layout</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .container {
+            display: flex;
+            height: 200px;
+            gap: 10px;
+        }
+
+        .left {
+            flex-grow: 1;
+            background-color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .center {
+            flex-grow: 2;
+            background-color: #e74c3c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .right {
+            flex-grow: 1;
+            background-color: #2ecc71;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">Left (1x)</div>
+        <div class="center">Center (2x)</div>
+        <div class="right">Right (1x)</div>
+    </div>
+</body>
+</html>
+

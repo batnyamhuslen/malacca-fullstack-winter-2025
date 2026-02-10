@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equal Columns</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; padding: 20px; }
+
+        .container {
+            display: flex;
+
+            gap: 20px;
+            
+        }
+
+        .column {
+            flex: 1;
+            padding: 30px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+        }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h3>Column 1</h3>
+            <p>Equal width</p>
+        </div>
+        <div class="column">
+            <h3>Column 2</h3>
+            <p>Equal width</p>
+        </div>
+        <div class="column">
+            <h3>Column 3</h3>
+            <p>Equal width</p>
+        </div>
+    </div>
+</body>
+</html>

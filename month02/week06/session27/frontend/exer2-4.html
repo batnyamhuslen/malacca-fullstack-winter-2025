@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Areas</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        .page {
+            display: grid;
+            min-height: 100vh;
+        }
+
+        .header {
+            grid-area: ;
+            background-color: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .sidebar {
+            /* TODO: grid-area: sidebar */
+            grid-area: header;
+            background-color: #34495e;
+            color: white;
+            padding: 20px;
+        }
+
+        .content {
+            /* TODO: grid-area: content */
+            grid-area: sidebar;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        .footer {
+            /* TODO: grid-area: footer */
+            grid-area: footer;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+</style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">Header</header>
+        <aside class="sidebar">Sidebar</aside>
+        <main class="content">Main Content</main>
+        <footer class="footer">Footer</footer>
+    </div>
+</body>
+</html>

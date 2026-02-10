@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Property</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #34495e;
+            color: white;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .search input {
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+        }
+
+     
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search {
+                order: 1;
+            }
+
+            .logo {
+                order: 2;
+                text-align: center;
+            }
+
+            .menu {
+                order: 3;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Logo</div>
+        <div class="menu">
+            <span>Home</span>
+            <span>About</span>
+            <span>Contact</span>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Search...">
+        </div>
+    </header>
+</body>
+
+</html>
