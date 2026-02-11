@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+    color: #fff;
+    transition: background 0.4s ease;
+}
+
+.card{
+    text-align: center;
+    padding: 40px;
+}
+
+.exercise-num{
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 8px;
+}
+
+h1{
+    font-size: clamp(28px,5vw,48px);
+    font-size: 700;
+    margin-bottom: 16px;
+}
+
+.info{
+    font-size: 18px;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.info .size{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+@media (min-width:768px){
+    body{
+        background-color: #2a9d8f;
+    }
+    .info::after{
+        content: "you hit the 768px breakpoint";
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 1024px){
+    body{
+        background: #e9c46a;
+        color: #264653;
+    }
+    .info::after{
+        content: "you hit the 1024px breakpoint";
+        font-weight: 600;
+    }
+}
+
+@media(min-width:1200px){
+    body{
+        background: brown;
+        color: red;
+    }
+    .info::after{
+        content: "you hit the 1200px breakpoint";
+        font-weight: 600;
+    }
+}

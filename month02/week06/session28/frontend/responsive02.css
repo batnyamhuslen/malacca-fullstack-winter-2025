@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body{
+    font-family: "Nunito", sans-serif;
+    background: #fefae0;
+    color: #283618;
+    width: 100vh;
+ }
+
+ nav{
+    background: #283618;
+    color: #fefae0;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+ .logo{
+    font-weight: 900px;
+    font-size: 20px;
+ }
+
+ .hamburger{
+    width: 28px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+ }
+
+ .hamburger span{
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #fefae0;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+ }
+
+ .hamburger span:nth-child(1){
+    top: 0;
+ }
+ .hamburger span:nth-child(2){
+    top: 8;
+ }
+ .hamburger span:nth-child(3){
+    top: 16;
+ }
+
+ .nav-links{
+    list-style: none;
+    display: none;
+    gap: 24px;
+ }
+ .nav-links a{
+    color: #fefae0;
+    text-decoration:  none;
+    font-weight: 700;
+    font-size: 15px;
+    opacity: 0.8;
+ }
+
+ .nav-links a:hover{
+    opacity: 1;
+ }
+ .content{
+    padding: 40px 24px;
+    max-width: 700px;
+    margin: 0 auto;
+ }
+ .exercise-num{
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #283618;
+    margin-bottom: 12px;
+ }
+
+ h1{
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: #283618;
+ }
+ p{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #283618;
+    margin-bottom: 16px;
+ }
+
+ .mobile-only{
+    background: #dda15e;
+    color: #fefae0;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-bottom: 16px;
+ }
+
+ .desktop-only{
+    background:#606c38;
+    color: #fefae0;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    display: none;
+    margin-bottom: 16px;
+ }
+ .hint-box{
+    margin-top: 24px;
+    padding: 20px;
+    background: #fff;
+    border-left: 4px solid #bc6c25;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #666;
+ }
+  .hint-box2{
+    margin-top: 24px;
+    padding: 20px;
+    background: #fff;
+    border-left: 4px solid #bc6c25;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #666;
+    display: none;
+    
+ }
+.hint-box code{
+    background: #fefae0;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+@media (min-width:600px){
+    .nav-links{
+        display: flex;
+    }
+    .hamburger{
+        display: none;
+    }
+    .mobile-only{
+        display: none;
+    }
+    h1{
+        font-size: 40px;
+    }
+}
+
+@media (min-width: 900px) {
+    .desktop-only {
+        display: block;
+    }
+}

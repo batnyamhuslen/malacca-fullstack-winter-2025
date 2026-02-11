@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./responsive02.css">
+</head>
+
+<body>
+ 
+        <nav>
+            <span class="logo">MediaQ</span>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <p class="exercise-num">Exercise 03</p>
+            <h1>Show &amp; Hide Elements</h1>
+
+            <div class="mobile-only">
+                📱 This box ONLY appears on mobile! (below 600px)
+            </div>
+
+            <div class="desktop-only">
+                🖥️ This box ONLY appears on desktop! (900px and above)
+            </div>
+
+            <p>
+                Not everything should be visible at every screen size. Mobile users don't
+                need a sprawling nav bar, and desktop users don't need a hamburger icon.
+                Media queries let you show and hide elements with <code>display: none</code>
+                and <code>display: block</code>.
+            </p>
+
+            <div class="hint-box">
+                💡 <strong>Hint:</strong> To show something ONLY between two sizes,
+                you can combine: <code>@media (min-width: 600px) and (max-width: 899px)</code>
+            </div>
+        </div>
+    
+
+</body>
+
+</html>
