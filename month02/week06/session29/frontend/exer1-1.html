@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.btn {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #4f46e5;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.btn-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 18px rgba(79, 70, 229, 0.9),
+              0 0 35px rgba(79, 70, 229, 0.6);
+}
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #22c55e;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 0;
+}
+
+.btn-fill:hover::before {
+  transform: translateX(0);
+}
+
+.btn-fill {
+  z-index: 1;
+}
+
+.btn-fill span {
+  position: relative;
+  z-index: 1;
+}
+
+    </style>
+</head>
+
+<body>
+    <button class="btn btn-lift">Lift Effect</button>
+    <button class="btn btn-glow">Glow Effect</button>
+    <button class="btn btn-fill">Fill Effect</button>
+</body>
+
+</html>

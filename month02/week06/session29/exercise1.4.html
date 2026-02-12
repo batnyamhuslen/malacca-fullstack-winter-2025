@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .animated-nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .animated-nav a {
+            position: relative;
+            text-decoration: none;
+            color: #222;
+            font-size: 16px;
+            padding: 4px 0;
+        }
+
+        .animated-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: #222;
+            transition: width 0.3s ease;
+        }
+
+        .animated-nav a:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="animated-nav">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</body>
+
+</html>

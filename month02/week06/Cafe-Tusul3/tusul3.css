@@ -2,7 +2,34 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: whitesmoke;
+}
 .container {
     max-width: 1920px;
     margin: 0 auto;
+    background-color: white;
 }
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:72px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 300px;
+}
+.nav-menu{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
+
+
+
