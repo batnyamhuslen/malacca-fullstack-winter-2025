@@ -1,0 +1,52 @@
+main{
+    max-width: 800px;
+    height: 80vh;
+    background-color: whitesmoke;
+    font-size: 30px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .box{
+    width: 400px;
+    height: 400px;
+    background: red;
+    border-radius: 20px;
+    transition: all 0.5s ease
+}
+
+@media (max-width: 365px){
+    main .box{
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: yellow;
+    }
+}
+@media (min-width: 900px){
+    main .box{
+        transform: rotate(60deg);
+        background-color: blue;
+        height: 200px;
+        width: 200px;
+        
+    }
+}
+@media (min-width:1200px) and (max-width:1440px) {
+    main .box{
+        width: 50%;
+        height: 20%;
+        animation: 3s animate ease-in;
+    }
+}
+@keyframes animate{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
