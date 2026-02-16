@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f6f6f6;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.header {
+    position: relative;
+    height: 85px;
+    padding: 0px 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    position: absolute;
+    left: 80px;
+    top: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #088000;
+}
+
+.black {
+    color: black;
+}
+
+#black {
+    color: black;
+}
+
+.nav-menu {
+    position: absolute;
+    right: 80px;
+    top: 30px;
+    list-style: none;
+    gap: 100px;
+}
+
+.nav-menu li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #75C310
+}
+
+.contact-button {
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid;
+    width: 149px;
+    height: 44.54px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.page1-text {
+    position: relative;
+    height: 697px;
+}
+
+.left-page1 {
+    position: absolute;
+    left: 120px;
+    top: 180px;
+    width: 400px;
+}
+
+.left-page1 h2 {
+    font-size: 64px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    width: 500px;
+}
+
+.left-page1 p {
+    color: #555;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.Logo-img {
+    position: absolute;
+    right: 120px;
+    top: 100px;
+    width: 514px;
+    height: 513px;
+    padding-top: 70px;
+}
+
+.page2-text {
+    position: relative;
+    height: 697px;
+}
+
+.page2-text img {
+    position: absolute;
+    left: 120px;
+    top: 60px;
+    width: 514px;
+    height: 513px;
+}
+
+.right-page2 {
+    position: absolute;
+    right: 200px;
+    top: 180px;
+    text-align: right;
+}
+
+.right-page2 h2 {
+    font-size: 64px;
+    font-weight: 700;
+    width: 600px;
+}
+
+.right-page2 p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.section1-buttom {
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    width: 220px;
+    height: 54px;
+    border: 1px solid;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.contact-button-pages-buttom {
+    position: relative;
+    top: 80px;
+    /* left: 200px; */
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    width: 220px;
+    height: 54px;
+    border: 1px solid;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+#buttom-left {
+    left: 0;
+}
+
+.page3-text {
+    position: relative;
+    height: 343px;
+    text-align: center;
+    top: 50px;
+}
+
+.page3-text h2 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page3-text p {
+    color: #555;
+    font-size: 20px;
+    font-weight: 400;
+    color: #555;
+}
+
+.page4-cards {
+    position: relative;
+    height: 600px;
+    top: 100px;
+}
+
+.card {
+    position: absolute;
+    width: 382px;
+    height: 485px;
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #75C310;
+}
+
+.card:nth-child(1) {
+    left: 50px;
+}
+
+.card:nth-child(2) {
+    left: 510px;
+}
+
+.card:nth-child(3) {
+    left: 970px;
+}
+
+.people-img img {
+    margin-bottom: 70px;
+    margin-left: 70px;
+    margin-top: -120px;
+}
+
+.card h3 {
+    margin-bottom: 8px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-left: 60px;
+
+}
+
+.card_lorem {
+    padding: 15px;
+}
+
+.card p {
+    text-align: center;
+    color: #555;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.ceo-p {
+    width: 100%;
+    margin: 60px auto;
+    font-weight: bold;
+}
+
+footer {
+    position: relative;
+    height: 469px;
+    background: #eaeaea;
+    margin-top: 150px;
+    background-color: #75C310;
+    color: white;
+}
+
+.footer-text {
+    position: absolute;
+    right: 150px;
+    top: 70px;
+    color: white;
+}
+
+.footer-text h4 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.footer-text p {
+    margin-top: 50px;
+    color: #444;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.back-home-buttom {
+    background-color: white;
+    color: #3F6333;
+    border-radius: 29px;
+    width: 161px;
+    height: 48px;
+    border: 0.1px solid white;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 90px;
+}
