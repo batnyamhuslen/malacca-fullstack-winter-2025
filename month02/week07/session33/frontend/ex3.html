@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Thumbnail Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        .media-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card {
+            max-width: 400px;
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <img src="https://picsum.photos/800/600" alt="Sample media" class="media-thumb">
+        <h3>Media Title</h3>
+        <p>This image keeps a 16:9 ratio and crops nicely using object-fit.</p>
+    </div>
+
+</body>
+
+</html>

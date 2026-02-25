@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Typography</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Your styles */
+        .title {
+            font-size: clamp(1rem, 1.2vw + 0.8rem, 1.5rem);
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: clamp(0.875rem, 0.8vw + 0.7rem, 1.125rem);
+            color: #666;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="title">Responsive Title</h1>
+    <p class="subtitle">This subtitle scales smoothly with screen size.</p>
+
+</body>
+
+</html>

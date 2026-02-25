@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Grid</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(12px, 2vw, 24px);
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Dashboard</h1>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Users</h3>
+            <p>1,245 Active Users</p>
+        </div>
+        <div class="card">
+            <h3>Revenue</h3>
+            <p>$12,430</p>
+        </div>
+        <div class="card">
+            <h3>Orders</h3>
+            <p>320 New Orders</p>
+        </div>
+        <div class="card">
+            <h3>Performance</h3>
+            <p>87% Growth</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

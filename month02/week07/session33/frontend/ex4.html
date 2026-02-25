@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role Badges Example</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 40px;
+        }
+
+        /* Badge styles */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background-color: #e0e0e0;
+            margin: 4px;
+            font-weight: 500;
+        }
+
+        .badge[data-role="admin"]::before {
+            content: "★ ";
+            color: gold;
+        }
+
+        .badge[data-role="instructor"]::before {
+            content: "● ";
+            color: #007BFF;
+        }
+
+        .badge[data-role="student"]::before {
+            content: "• ";
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Role Badges</h2>
+
+    <span class="badge" data-role="admin">Admin</span>
+    <span class="badge" data-role="instructor">Instructor</span>
+    <span class="badge" data-role="student">Student</span>
+
+</body>
+
+</html>
