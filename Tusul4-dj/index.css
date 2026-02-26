@@ -1,0 +1,20 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster{
+    background-color: rgb(254, 242, 193);
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    border-radius: 60px;
+    height: 1114px;
+    max-width: 355px;
+    min-width: 1707px;
+}
+
+
+
