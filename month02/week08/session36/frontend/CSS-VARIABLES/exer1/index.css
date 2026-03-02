@@ -1,0 +1,65 @@
+/* CSS VARIABLES */
+
+:root{
+    --text-color:#7e7e7e;
+    --height50:50px;
+    /* button style */
+    --btn-bg:coral;
+    --btn-color:white;
+    --btn-padding:10px 24px;
+    --btn-radius:8px;
+    /* theme */
+    --bg:white;
+    --text:#222;
+    /* card */
+    --card-bg:#f0f0f0;
+}
+
+main{
+    height: 80vh;
+    width: 60vw;
+    margin: 0 auto;
+    background: burlywood;
+    color:var(--text-color);
+}
+
+section {
+    height: var(--height50);
+    width: 60vh;
+    background: orange;
+    color:var(--text-color);
+}
+
+h2{
+    color:var(--text-color);
+}
+
+.btn{
+    background-color: var(--btn-color);
+    color: var(--btn-color);
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    border: none;
+    cursor: pointer;
+}
+
+body.dark{
+    --bg:#1a1a1a;
+    --text:#eee;
+}
+body{
+    background: var(--bg);
+    color: var(--text);
+    transition: background 0.3s,color 0.3s;
+}
+
+.card{
+    background: var(--card-bg);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.highlight{
+    --card-bg:gold;
+}

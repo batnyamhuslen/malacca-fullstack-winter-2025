@@ -1,3 +1,9 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: black;
     display: flex;
@@ -5,15 +11,142 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    margin-top: 200px;
+    margin-bottom: 200px
 }
 
 .poster {
     background-color: rgb(254, 242, 193);
     display: flex;
+    position: relative;
     justify-content: space-evenly;
     box-sizing: border-box;
-    border-radius: 60px;
+    border-radius: 41px;
     height: 1114px;
     max-width: 355px;
     min-width: 1707px;
 }
+
+.header{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    background-color: rgb(244, 192, 144);
+    width: 1097px;
+    height: 115px;
+    border-radius: 30px;
+    opacity: 1;
+    top: 32px;
+    left: 76px;
+}
+
+.header h1{
+    align-content: center;
+    color: white;
+    margin-left: 60px;
+    font-size: 48px;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.headerButton{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    list-style-type: none;
+    width: 395px;
+    height: 27px;
+    margin-top: 44px;
+    align-items: center;
+}
+
+.headerButton button{
+    background-color: rgb(244, 192, 144);
+    height: 27px;
+    font-size: 22px; 
+}
+
+.headerButton #home{
+    background-color: rgb(244, 192, 144);
+    border: none;
+    width: 64px;
+    height: 27px;
+    font-size: 22px;
+    color: white;
+}
+.headerButton #ticket{
+    background-color: rgb(244, 192, 144);
+    border: none;
+    width: 85px;
+    height: 27px;
+    font-size: 22px;
+    color: white;
+}
+.headerButton #support{
+    background-color: rgb(244, 192, 144);
+    border: none;
+    width: 88px;
+    height: 27px;
+    font-size: 22px;
+    color: white;
+}
+.headerButton #search{
+    width: 21px;
+    height: 21px;
+}
+.header button{
+    width: 185px;
+    height: 103px;
+    background-color: #FF5C19;
+    border: none;
+    border-radius: 23px;
+    font-size: 22px;
+    align-self: center;
+    color: white;
+    margin: 6px 7px;
+}
+
+ .profile-photo img {
+    position: absolute;
+    left: 499px;
+    bottom: 45px;
+    background-color: #FEF2C1;
+}
+/* FIX !!! */
+.wrapper{
+    position:absolute;
+    top: 0;
+    right: 0;
+}
+
+.card{
+    position: relative;
+    width: 509px;
+    height: 444px;
+    left: 29px;
+    background: #f4a460;
+    color: white;
+    padding: 45px;
+    box-sizing: border-box;
+    clip-path: path("M40,0 H440 Q480, 0 480, 40 V260 Q480, 320 420, 320 H200 Q160, 320 160, 260 Q160, 220 120, 220 H40 Q0, 220 0, 180 V40 Q0, 0 40, 0 Z"); 
+}
+.top{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+h2{
+    font-size: 48px;
+}
+p{
+    margin-top: 8px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.bottom{
+    position: absolute;
+    bottom: 140px;
+    right: 80px;
+}
+/* fix!!! */
+ 
