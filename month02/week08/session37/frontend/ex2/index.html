@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>CSS Variable Fallback Demo</title>
+    <style>
+        :root {
+            --color-primary: #6366f1;
+            --spacing-md: 16px;
+        }
+
+        .box {
+            margin: 10px 0;
+        }
+
+
+        .box-1 {
+            color: var(--color-primary, red);
+        }
+
+
+        .box-2 {
+            color: var(--color-accent, orange);
+        }
+
+
+        .box-3 {
+            padding: var(--spacing-md, 20px);
+            background: #f3f4f6;
+        }
+
+        .box-4 {
+            background: var(--color-surface, var(--color-primary, gray));
+            color: white;
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box box-1">Box 1 — color: #6366f1</div>
+    <div class="box box-2">Box 2 — color: orange</div>
+    <div class="box box-3">Box 3 — padding: 16px</div>
+    <div class="box box-4">Box 4 — background: #6366f1</div>
+
+</body>
+
+</html>

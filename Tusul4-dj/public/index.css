@@ -149,4 +149,91 @@ p{
     right: 80px;
 }
 /* fix!!! */
+.left-middle-side{
+    position: absolute;
+    left: 5%;
+    top: 22%;
+}
+.left-middle-side #top-text{
+    font-size: 58px;
+    font-weight: 700;
+    color: rgba(254, 130, 44, 1);
+}
+.left-middle-side #middle-text{
+    font-size: 26px;
+    font-weight: 600;
+    color: rgba(254, 130, 44, 1);
+}
+.bottom-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+}
+.bottom-buttons button{
+    width: 200px;
+    height: 90px;
+    border: none;
+    border-radius: 20px;
+    background-color: #FE9E48;
+    color: #FFFFFF;
+    font-size: 26px;
+}
+.bottom-buttons p{
+    font-size: 22px;
+    color: rgba(254, 130, 44, 1)
+}
+.radius{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #FE9E48;
+    padding-left: 2%;
+}
+.triangle{
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-left: 30px solid #FE9E48;
+    border-bottom: 15px solid transparent;
+}
+
+.right-middle-side{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 8%;
+    top: 36%;
+    gap: 40px;
+}
+.red-circle{
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: rgba(255, 92, 25, 1);
+}
+.yellow-circle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color:  rgba(254, 158, 72, 1)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  

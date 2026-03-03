@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --font-size-base: 14px;
+            --spacing-md: 12px;
+            --columns: 1;
+        }
+
+        /* 768px дээш */
+        @media (min-width: 768px) {
+            :root {
+                --font-size-base: 16px;
+                --spacing-md: 16px;
+                --columns: 2;
+            }
+        }
+
+        /* 1024px дээш */
+        @media (min-width: 1024px) {
+            :root {
+                --font-size-base: 18px;
+                --spacing-md: 20px;
+                --columns: 3;
+            }
+        }
+
+        body {
+            font-size: var(--font-size-base);
+            margin: 0;
+            padding: var(--spacing-md);
+            font-family: Arial, sans-serif;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(var(--columns), 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .card {
+            background: #f4f4f4;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Responsive Layout</h1>
+
+    <div class="grid">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+        <div class="card">Card 4</div>
+        <div class="card">Card 5</div>
+        <div class="card">Card 6</div>
+    </div>
+</body>
+
+</html>
