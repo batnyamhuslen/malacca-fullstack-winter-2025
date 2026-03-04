@@ -1,4 +1,3 @@
-package month02.week07.session35.backend.task;
 public class Main {
     public static void main(String[] args) {
         
