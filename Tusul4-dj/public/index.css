@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: "DM Sans", sans-serif;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -12,6 +13,10 @@ body {
     height: 100vh;
     margin-top: 200px;
     margin-bottom: 200px
+}
+body {
+    margin: 0;
+    background: #e7deb5;
 }
 
 .poster {
@@ -25,6 +30,7 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     ;
 }
+
 /* header */
 .header {
     display: flex;
@@ -106,11 +112,12 @@ body {
     margin: 6px 7px;
     font-weight: 700;
 }
+
 /* girl */
 .profile-photo img {
     position: absolute;
-    left: 499px;
-    bottom: 45px;
+    left: 487px;
+    bottom: 65px;
     background-color: #FEF2C1;
 }
 
@@ -120,189 +127,301 @@ body {
     top: 0;
     right: 0;
 }
-
 .card {
     position: relative;
     width: 509px;
     height: 444px;
-    left: 29px;
-    background: #f4a460;
+    background: #f79a45;
     color: white;
-    padding: 45px;
+    padding: 50px;
     box-sizing: border-box;
-    clip-path: path("M40,0 H440 Q480, 0 480, 40 V260 Q480, 320 420, 320 H200 Q160, 320 160, 260 Q160, 220 120, 220 H40 Q0, 220 0, 180 V40 Q0, 0 40, 0 Z");
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
 }
 
-.top {
+.card::before {
+    content: "";
     position: absolute;
-    top: 40px;
+    width: 360px;
+    height: 252px;
+    background: #FEF2C1; 
+    bottom: 0px;
+    right: 180px;
+    border-top-right-radius: 90px;
+}
+.card::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 150px;
+    background: #f79a45;
+    top: 80px;
+    left: 0px;
+    border-radius: 42px;
+    z-index: 9;
+}
+.card .extra-shape {
+    position: absolute;
+    width: 100px;
+    height: 250px;
+    background: #f79a45;
+    bottom: 0px;
+    left: 240px;
+    border-end-start-radius:50px; 
+}
+
+.card .extra-shape2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #FEF2C1;
+    border-radius: 41px;
+    top: 230px;
     left: 40px;
 }
-
-h2 {
-    font-size: 48px;
-    font-weight: 700;
+.card .bonus-shape{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #f79a45;
+    top: 200px;
+    left: 100px;
 }
 
-p {
-    margin-top: 8px;
-    font-size: 22px;
+.top{
+    position: absolute;
+    z-index: 120;
+}
+.top h2 {
+    font-size: 42px;
+    margin: 0;
+}
+
+.top p {
+    margin-top: 10px;
     font-weight: 600;
     letter-spacing: 1px;
-
 }
 
 .bottom {
     position: absolute;
-    bottom: 140px;
-    right: 80px;
-}
-/* zvvn dund */
-.left-middle-side {
-    position: absolute;
-    left: 5%;
-    top: 22%;
+    right: 50px;
+    bottom: 60px;
+    text-align: left;
+    z-index: 120;
 }
 
-.left-middle-side #top-text {
-    font-size: 58px;
-    font-weight: 700;
-    color: rgba(254, 130, 44, 1);
+.bottom h2 {
+    font-size: 36px;
+    margin: 0;
 }
 
-.left-middle-side #middle-text {
-    font-size: 26px;
+.bottom p {
+    margin-top: 10px;
     font-weight: 600;
-    color: rgba(254, 130, 44, 1);
 }
 
-.bottom-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 350px;
-}
-
-.bottom-buttons button {
-    width: 200px;
-    height: 90px;
-    border: none;
-    border-radius: 20px;
-    background-color: #FE9E48;
-    color: #FFFFFF;
-    font-size: 26px;
-}
-
-.bottom-buttons p {
-    font-size: 22px;
-    color: rgba(254, 130, 44, 1)
-}
-
-.radius {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 3px solid #FE9E48;
-    padding-left: 2%;
-}
-
-.triangle {
-    width: 0;
-    height: 0;
-    border-top: 15px solid transparent;
-    border-left: 30px solid #FE9E48;
-    border-bottom: 15px solid transparent;
-}
-/* baruun dund  */
-.right-middle-side {
+/* tools circle */
+.upd{
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    right: 8%;
-    top: 36%;
-    gap: 40px;
+    top: 80px;
+    right: 153px;
 }
-
-.red-circle {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background-color: rgba(255, 92, 25, 1);
-}
-
-.yellow-circle {
+.one {
     width: 8px;
     height: 8px;
+    background: #FFFFFF;
     border-radius: 50%;
-    background-color: rgba(254, 158, 72, 1)
 }
-/* dood */
-.profile-footer {
+.downd{
     position: absolute;
-    top: 718px;
-    bottom: 0%;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(to right, #FF5C19, #FE822C);
-    clip-path: path(" M 60,0 L440,0 Q500,0 500,60 L500,190 Q500,250 560,250 L1168,250 Q1228,250 1228,190 L1228,60 Q1228,0 1288,0 L1668,0 Q1728,0 1728,60 L1728,340 Q1728,400 1668,400 L60,400 Q0,400 0,340 L0,60 Q0,0 60,0 Z");
+    top: 123px;
+    right: 140px
 }
-/* zvvn dood */
-.left-side {
+.circle-one{
+    width: 191px;
+    height: 45px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+}
+.uped{
     position: absolute;
-    display: flex;
-    padding-left: 50px;
-    padding-top: 60px;
+    top: 83px;
+    right: 55px;
+}
+.dupd{
+    position: absolute;
+    top: 83px;
+    right: 55px;
+    rotate: -28.15deg;
 }
 
-.left-text {
-    color: white;
-}
 
-.left-text p {
-    font-size: 16px;
+    /* zvvn dund */
+    .left-middle-side {
+        position: absolute;
+        left: 5%;
+        top: 22%;
+    }
+
+    .left-middle-side #top-text {
+        font-size: 58px;
+        font-weight: 700;
+        color: rgba(254, 130, 44, 1);
+    }
+
+    .left-middle-side #middle-text {
+        font-size: 26px;
+        font-weight: 600;
+        color: rgba(254, 130, 44, 1);
+    }
+
+    .bottom-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 350px;
+    }
+
+    .bottom-buttons button {
+        width: 200px;
+        height: 90px;
+        border: none;
+        border-radius: 20px;
+        background-color: #FE9E48;
+        color: #FFFFFF;
+        font-size: 26px;
+        font-weight:700;
+    }
+
+    .bottom-buttons p {
+        font-size: 22px;
+        color: rgba(254, 130, 44, 1)
+    }
+
+    .radius {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 3px solid #FE9E48;
+        padding-left: 2%;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-left: 30px solid #FE9E48;
+        border-bottom: 15px solid transparent;
+    }
+    .playnow {
+    width: 140px;
+    height: 27px;
+    position: absolute;
+    top: 280px;
+    left: 370px;
+    font-family: "InterBold";
+    font-size: 22px;
     line-height: 100%;
-    font-weight: 600;
-}
+    font-weight: 500;
+    color: #FE822C;
+    }
 
-.profile-footer .left-side #img-left {
-    border-radius: 36px;
-    margin-left: -40px;
-}
-/* baruun dood */
-.rigth-side {
-    position: absolute;
-    display: flex;
-    right: 20px;
-    top: 14%;
-}
+    /* baruun dund  */
+    .right-middle-side {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        right: 6%;
+        top: 47%;
+        gap: 30px;
+    }
 
-.right-text p {
-    font-size: 16px;
-    line-height: 100%;
-    font-weight: 600;
-}
-/* dood dood */
-.bottom-side {
-    position: absolute;
-    display: flex;
-    width: 1400px;
-    bottom: 10%;
-    left: 10%;
-    align-items: center;
-    justify-content: space-between;
-}
+    .red-circle {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background-color: rgba(255, 92, 25, 1);
+    }
 
-.bottom-side div {
-    display: flex;
-    gap: 30px;
-}
+    .yellow-circle {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: rgba(254, 158, 72, 1)
+    }
 
-.bottom-side p {
-    color: white;
-    font-size: 20px;
-    font-weight: 700;
-}
+    /* dood */
+    .profile-footer {
+        position: absolute;
+        top: 718px;
+        bottom: 0%;
+        width: 100%;
+        height: 400px;
+        background: linear-gradient(to right, #FF5C19, #FE822C);
+        clip-path: path(" M 60,0 L440,0 Q500,0 500,60 L500,190 Q500,250 560,250 L1168,250 Q1228,250 1228,190 L1228,60 Q1228,0 1288,0 L1668,0 Q1728,0 1728,60 L1728,340 Q1728,400 1668,400 L60,400 Q0,400 0,340 L0,60 Q0,0 60,0 Z");
+    }
+
+    /* zvvn dood */
+    .left-side {
+        position: absolute;
+        display: flex;
+        padding-left: 50px;
+        padding-top: 60px;
+    }
+
+    .left-text {
+        color: white;
+    }
+
+    .left-text p {
+        font-size: 16px;
+        line-height: 100%;
+        font-weight: 600;
+    }
+
+    .profile-footer .left-side #img-left {
+        border-radius: 36px;
+        margin-left: -40px;
+    }
+
+    /* baruun dood */
+    .rigth-side {
+        position: absolute;
+        display: flex;
+        right: 20px;
+        top: 14%;
+    }
+
+    .right-text p {
+        font-size: 16px;
+        line-height: 100%;
+        font-weight: 600;
+    }
+
+    /* dood dood */
+    .bottom-side {
+        position: absolute;
+        display: flex;
+        width: 1400px;
+        bottom: 10%;
+        left: 10%;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .bottom-side div {
+        display: flex;
+        gap: 30px;
+    }
+
+    .bottom-side p {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+    }
