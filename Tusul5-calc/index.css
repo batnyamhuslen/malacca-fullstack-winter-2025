@@ -1,0 +1,27 @@
+:root{
+    --bg-color: #8C9EFF;
+    --calc-bg: #202128;
+    --header-text: #FFFFFF;
+    --mode-bg: #262831;
+    --display-text: #FFFFFF;
+    --pad-bg: #262831;
+    --btn-bg: #2b2d35;
+    --btn-text: #FFFFFF;
+    --accent-blue: #90CAF9;
+    --accent-red: #E57373;
+    --shadow: rgba(0, 0, 0, 0.26);
+}
+.btn{
+    height: 72px;
+    border: none;
+    border-radius: 12px;
+    font-size: 33px;
+    font-weight: 700;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
