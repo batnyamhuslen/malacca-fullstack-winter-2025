@@ -10,3 +10,4 @@ let e ;
 console.log(e);
 let f =3.14;
 console.log(f);
+console.log(typeof null);
