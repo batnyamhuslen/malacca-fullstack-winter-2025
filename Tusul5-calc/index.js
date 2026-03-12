@@ -1,44 +1,33 @@
 let curr = '0';
 let prev = '';
 let op = undefined;
-let result = 0;
-const currTxt = document.getElementById('top-display');
-const prevTxt = document.getElementById('botton-display');
-const addButton = document.getElementById('add');
 
-addButton.addEventListener('click', function(){
-    // todo +
-    op = "+";
-    if (op !== "="){
-        result = curr + prev;
-        
-    } elseif ()
-
-})
-
-document.querySelectorAll('.mode-btn').forEach(btn=>{
-    btn.addEventListener('click',() => {
-        document.documentElement.setAttribute('data-theme', btn.dataset.theme);
-    })
-})
+const currTxt = document.getElementById('botton-display'); // Том дэлгэц (доод тал)
+const prevTxt = document.getElementById('top-display');    // Жижиг дэлгэц (дээд тал)
 
 function uptade() {
     currTxt.innerText = curr;
-    if (curr.length > 10) {
-        currTxt.style.fontSize = '1.5rem';
-    } else if (curr.length > 6) {
-        currTxt.style.fontSize = '2rem';
-    } else {
-        currTxt.style.fontSize = '3rem';
-    }
 
-    if (op) {
-        let sym = op === '*' ? 'x' : (op === "/" ? '÷' : op);
-        prevTxt.innerText = '';
+    if (op && op !== '=') {
+        let sym = op === '*' ? '×' : (op === "/" ? '÷' : op);
+        prevTxt.innerHTML = `${prev} <span class="operator-style">${sym}</span>`;
     } else {
-        prevTxt.innerText = '';
+        prevTxt.innerText = prev;
+    }
+    if (curr.length > 12) {
+        currTxt.style.fontSize = '30px';
+    } else {
+        currTxt.style.fontSize = '58px';
     }
 }
+
+document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.documentElement.setAttribute('data-theme', btn.dataset.theme);
+        document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
 
 function addNum(n) {
     if (n === '.' && curr.includes('.')) return;
@@ -47,27 +36,52 @@ function addNum(n) {
     uptade();
 }
 
-// function setOp(o) {
-//     if (curr === '') return;
-//     if (prev !== '') calculate();
-//     op = o;
-//     prev = curr;
-//     curr = '0';
-//     if (op === '='){
-//         if (op === '+'){
-            
-//         } else if {
-            
+function setOp(o) {
+    if (curr === '0' && prev === '') return;
+    if (prev !== '') {
+        calculate();
+    }
+    op = o;
+    prev = curr;
+    curr = '0';
+    uptade();
+}
 
-//     }
-//     uptade();
-// }
+function calculate() {
+    let res;
+    const p = parseFloat(prev);
+    const c = parseFloat(curr);
 
-// function calculate() {
-//     let res;
-//     const p = parseFloat(prev);
-//     const c = parseFloat(curr);
-// }
+    if (isNaN(p) || isNaN(c)) return;
+
+    switch (op) {
+        case '+': res = p + c; break;
+        case '-': res = p - c; break;
+        case '*': res = p * c; break;
+        case '/': res = c === 0 ? "Error" : p / c; break;
+        case '%': res = p % c; break;
+        default: return;
+    }
+
+    curr = res.toString();
+    op = undefined;
+    prev = '';
+    uptade();
+}
+
+function clearAll() {
+    curr = '0';
+    prev = '';
+    op = undefined;
+    uptade();
+}
+
+function backspace() {
+    if (curr === '0') return;
+    curr = curr.slice(0, -1);
+    if (curr === '') curr = '0';
+    uptade();
+}
 
 
-
+uptade();

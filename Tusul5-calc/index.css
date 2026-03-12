@@ -1,4 +1,4 @@
-.bg-video{
+.bg-video {
     position: fixed;
     top: 0;
     left: 0;
@@ -9,7 +9,7 @@
 }
 
 :root {
-    --bg-color: white;
+    --bg-color: #8C9EFF;
     --calc-bg: #202128;
     --header-text: #FFFFFF;
     --mode-bg: #262831;
@@ -50,9 +50,8 @@
 body {
     margin: 0;
     background-color: var(--bg-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     min-height: 100vh;
 }
 
@@ -70,11 +69,10 @@ h1 {
     background-color: var(--btn-bg);
     color: var(--btn-text);
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     border: none;
-    box-shadow:var(--box-shadow)   
+    box-shadow: var(--box-shadow);
 }
 
 .blue {
@@ -110,22 +108,22 @@ svg {
     height: 841px;
     background-color: var(--calc-bg);
     border-radius: 24px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
     box-shadow: 0px 10px 30px var(--shadow);
     overflow: hidden;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     padding: 46px 32px 0 32px;
-    height: 100vh;
 }
 
 .mode {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
     background-color: var(--mode-bg);
     padding: 6px;
     border-radius: 32px;
@@ -140,9 +138,8 @@ svg {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     color: var(--header-text);
 }
 
@@ -152,13 +149,18 @@ svg {
 }
 
 .display {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+    display: grid;
+    justify-items: end;
+    align-content: end;
     padding: 0 32px 37.5px 32px;
     overflow: hidden;
-    height: 200300px;
+    height: 186px;
+}
+
+.op-color {
+    color: var(--accent-red);
+    font-weight: bold;
+    margin-left: 5px;
 }
 
 .display .top {
@@ -180,6 +182,9 @@ svg {
     overflow-x: auto;
     width: 100%;
     text-align: right;
+    overflow-x: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
 }
 
 .keyboard {
@@ -192,5 +197,14 @@ svg {
     height: 552px;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
-    flex-grow: 1;
+}
+
+.operator-style {
+    color: var(--accent-red);
+    font-weight: 800;
+    margin-left: 8px;
+}
+
+[data-theme="light"] .operator-style {
+    color: #d32f2f;
 }
