@@ -1,5 +1,15 @@
+.bg-video{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
 :root {
-    --bg-color: #8C9EFF;
+    --bg-color: white;
     --calc-bg: #202128;
     --header-text: #FFFFFF;
     --mode-bg: #262831;
@@ -10,6 +20,25 @@
     --accent-blue: #90CAF9;
     --accent-red: #E57373;
     --shadow: rgba(0, 0, 0, 0.26);
+    --box-shadow:
+        inset 0 0 0 3px #3b404c,
+        0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] {
+    --bg-color: white;
+    --calc-bg: rgba(238, 238, 238, 1);
+    --header-text: black;
+    --mode-bg: rgba(255, 255, 255, 1);
+    --display-text: black;
+    --pad-bg: rgba(250, 250, 250, 1);
+    --btn-bg: white;
+    --btn-text: black;
+    --accent-red: #E57373;
+    --shadow: rgba(0, 0, 0, 0.26);
+    --box-shadow:
+        inset 0 0 0 3px whitesmoke,
+        0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -27,7 +56,7 @@ body {
     min-height: 100vh;
 }
 
-h1{
+h1 {
     font-size: 23px;
     font-weight: 700;
     color: var(--header-text);
@@ -35,8 +64,7 @@ h1{
 
 .btn {
     height: 72px;
-    border: 3px solid gray ;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 33px;
     font-weight: 700;
     background-color: var(--btn-bg);
@@ -45,24 +73,26 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    border: none;
+    box-shadow:var(--box-shadow)   
 }
 
-.blue{
+.blue {
     color: var(--accent-blue);
 }
 
-.red{
+.red {
     color: var(--accent-red);
 }
 
-.span-2{
+.span-2 {
     grid-column: span 2;
 }
 
-.equals{
+.equals {
     background-color: var(--accent-red);
     color: white;
+    box-shadow: none;
 }
 
 svg {
@@ -94,15 +124,16 @@ svg {
     height: 100vh;
 }
 
-.mode{
+.mode {
     display: flex;
     background-color: var(--mode-bg);
     padding: 6px;
     border-radius: 32px;
-    gap: 8px;
+    gap: 32px;
     box-shadow: 0px 10px 20px var(--shadow);
 }
-.mode-btn{
+
+.mode-btn {
     border: none;
     background: none;
     cursor: pointer;
@@ -113,9 +144,9 @@ svg {
     justify-content: center;
     align-items: center;
     color: var(--header-text);
-    opacity: 0.3;
 }
-.mode-btn .active{
+
+.mode-btn .active {
     opacity: 1;
     background-color: var(--btn-bg);
 }
@@ -130,7 +161,7 @@ svg {
     height: 200300px;
 }
 
-.display .top{
+.display .top {
     font-size: 33px;
     font-weight: 500;
     color: var(--header-text);
@@ -140,7 +171,7 @@ svg {
     white-space: nowrap;
 }
 
-.display .botton{
+.display .botton {
     font-size: 58px;
     font-weight: 600;
     color: var(--display-text);
