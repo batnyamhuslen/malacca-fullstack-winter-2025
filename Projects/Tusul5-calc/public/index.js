@@ -1,7 +1,6 @@
 let curr = '0';
 let prev = '';
 let op = undefined;
-
 const currTxt = document.getElementById('botton-display'); 
 const prevTxt = document.getElementById('top-display');  
 document.getElementById("num0").onclick = () => addNum("0");
