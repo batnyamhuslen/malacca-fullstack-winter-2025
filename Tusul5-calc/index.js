@@ -2,8 +2,27 @@ let curr = '0';
 let prev = '';
 let op = undefined;
 
-const currTxt = document.getElementById('botton-display'); // Том дэлгэц (доод тал)
-const prevTxt = document.getElementById('top-display');    // Жижиг дэлгэц (дээд тал)
+const currTxt = document.getElementById('botton-display'); 
+const prevTxt = document.getElementById('top-display');  
+document.getElementById("num0").onclick = () => addNum("0");
+document.getElementById("num1").onclick = () => addNum("1");
+document.getElementById("num2").onclick = () => addNum("2");
+document.getElementById("num3").onclick = () => addNum("3");
+document.getElementById("num4").onclick = () => addNum("4");
+document.getElementById("num5").onclick = () => addNum("5");
+document.getElementById("num6").onclick = () => addNum("6");
+document.getElementById("num7").onclick = () => addNum("7");
+document.getElementById("num8").onclick = () => addNum("8");
+document.getElementById("num9").onclick = () => addNum("9");
+document.getElementById("dot").onclick = () => addNum(".");
+document.getElementById("plus").onclick = () => setOp("+");
+document.getElementById("minus").onclick = () => setOp("-");
+document.getElementById("multiply").onclick = () => setOp("*");
+document.getElementById("divide").onclick = () => setOp("/");
+document.getElementById("percent").onclick = () => setOp("%");
+document.getElementById("equals").onclick = calculate;
+document.getElementById("ac").onclick = clearAll;
+document.getElementById("c").onclick = backspace;  
 
 function uptade() {
     currTxt.innerText = curr;
@@ -82,6 +101,5 @@ function backspace() {
     if (curr === '') curr = '0';
     uptade();
 }
-
 
 uptade();
