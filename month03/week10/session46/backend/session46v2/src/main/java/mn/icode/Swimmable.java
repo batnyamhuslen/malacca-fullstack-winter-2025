@@ -1,4 +1,4 @@
-package main.java.mn.icode;
+package mn.icode;
 
 public interface Swimmable {
     boolean canSwim();

@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>mn.icode</groupId>
-  <artifactId>session46</artifactId>
+  <artifactId>session46v2</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>session46</name>
+  <name>session46v2</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

@@ -4,8 +4,8 @@ abstract class Vehicle {
     abstract void prinnInfo();
 }
 
-class BigVehicle{
-    boolean isBig(){
+class BigVehicle {
+    boolean isBig() {
         return false;
     }
 }
@@ -13,19 +13,20 @@ class BigVehicle{
 class Tractor extends Vehicle {
     @Override
     void prinnInfo() {
-     System.out.println("im tractor");
+        System.out.println("im tractor");
     }
 }
+
 class Motorrad extends Vehicle {
     @Override
     void prinnInfo() {
-     System.out.println("im motorrat");
+        System.out.println("im motorrat");
     }
 }
 
-public class App{
+public class App {
 
-    public static void main( String[] args ){
+    public static void main(String[] args) {
         Tractor tr1 = new Tractor();
         tr1.prinnInfo();
         Motorrad mr = new Motorrad();
