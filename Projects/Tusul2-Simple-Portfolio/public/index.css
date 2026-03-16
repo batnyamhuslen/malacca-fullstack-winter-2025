@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+  
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: whitesmoke;
+    
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+h2 {
+    font-weight: 700px;
+    font-size: 64px;
+    width: 429px;
+    top: 176px;
+}
+h3{
+    font-weight: 700px;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+p {
+    font-weight: 500px;
+    font-size: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 50px;
+    height: 85px;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 24px;
+    color: #75C310;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 60px;
+    font-size: 15px;
+    font-weight: 500;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #75C310;
+}
+
+#black {
+    color: black;
+}
+
+.contact-button {
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    border: 1px solid;
+    width: 149px;
+    height: 44.54px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.black {
+    color: black;
+}
+
+main {
+    padding: 0 65px;
+}
+/* 1 */
+.page1-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    height: 697px;
+}
+
+.left-page1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.page1-text img {
+    width: 514px;
+    height: 513px;
+}
+
+.go-to-portfolio-buttom {
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    width: 220px;
+    height: 54px;
+    border: 1px solid;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* 2 */
+.page2-text {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    height: 697px;
+}
+
+.right-page2 {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    
+
+}
+
+.Logo-img {
+    padding-top: 70px;
+}
+
+.contact-button-pages-buttom {
+    background-color: #75C310;
+    color: white;
+    border-radius: 30px;
+    width: 220px;
+    height: 54px;
+    border: 1px solid;
+    font-size: 20px;
+    font-weight: 700;
+
+    
+}
+/* 3 */
+.page3-text {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    height: 343px;
+}
+/* 4 */
+.page4-cards {
+    height: 893px;
+    display: flex;
+    gap: 30px;
+    justify-content:space-between;
+    margin-top: 250px;
+
+}
+
+.card {
+    width: 382px;
+    height: 485px;
+    border: 3px solid #75C310;
+    border-radius: 22px;
+    filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.10)) drop-shadow(0 16px 35px rgba(0, 0, 0, 0.10)) drop-shadow(0 64px 64px rgba(0, 0, 0, 0.09)) drop-shadow(0 145px 87px rgba(0, 0, 0, 0.05)) drop-shadow(1px 257px 103px rgba(0, 0, 0, 0.01)) drop-shadow(1px 402px 112px rgba(0, 0, 0, 0.00));
+    padding: 20px;
+    text-align: center;
+    flex: 0 0 382px;
+    flex-basis: 382px;
+}
+
+.people-img{
+    position: relative;
+    left: 78px;
+    top: -120px;
+    width: 100px;
+}
+.card h3{
+    margin-top: -70px;
+}
+.card p{
+    font-weight: 400;
+    font-size: 16px;
+    padding: 20px;
+ 
+}
+.ceo-p{
+   font-weight:400;
+   font-style: italic;
+   font-size: 14px;
+   margin-top: 120px;
+}
+/* 5 */
+footer{
+    background-color:#75C310;
+    color: white;
+    display: flex;
+    justify-content: space-between; 
+    text-align: end;
+}
+.footer-text{
+     margin: 100px;
+} 
+.footer-text h4{
+    font-weight: 700;
+    font-size: 24px;
+}
+.footer-text p{
+    font-weight: 400;
+    font-size: 20px;
+}
+.back-home-buttom{
+    background-color: white;
+    color: #3F6333;
+    border-radius:29px;
+    width: 161px;
+    height: 48px;
+    border:  0.1px solid white;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 90px;
+}
+.footer-p{
+    margin-top: 50px;
+}
+
+
+
+

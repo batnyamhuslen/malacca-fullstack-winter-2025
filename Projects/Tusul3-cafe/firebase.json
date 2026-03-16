@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "malacca-winter-2025-khuslen-5300f",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

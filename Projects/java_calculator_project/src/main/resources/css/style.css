@@ -1,0 +1,29 @@
+.button-number {
+    --fx-background-color: rgb(240, 10, 10);
+    --fx-text-fill: black;
+    --fx-font-size: 16px;
+}
+
+.button-operator {
+    --fx-background-color: orange;
+    --fx-text-fill: white;
+    --fx-font-size: 16px;
+}
+
+.button-equal {
+    --fx-background-color: green;
+    --fx-text-fill: white;
+    --fx-font-size: 16px;
+}
+
+.button-clear {
+    --fx-background-color: red;
+    --fx-text-fill: white;
+    --fx-font-size: 16px;
+}
+
+.text-field {
+    --fx-font-size: 24px;
+    --fx-text-fill: black;
+    --fx-alignment: center-right;
+}

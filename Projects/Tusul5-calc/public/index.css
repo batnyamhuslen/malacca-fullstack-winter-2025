@@ -1,0 +1,210 @@
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+:root {
+    --bg-color: #8C9EFF;
+    --calc-bg: #202128;
+    --header-text: #FFFFFF;
+    --mode-bg: #262831;
+    --display-text: #FFFFFF;
+    --pad-bg: #262831;
+    --btn-bg: #2b2d35;
+    --btn-text: #FFFFFF;
+    --accent-blue: #90CAF9;
+    --accent-red: #E57373;
+    --shadow: rgba(0, 0, 0, 0.26);
+    --box-shadow:
+        inset 0 0 0 3px #3b404c,
+        0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] {
+    --bg-color: white;
+    --calc-bg: rgba(238, 238, 238, 1);
+    --header-text: black;
+    --mode-bg: rgba(255, 255, 255, 1);
+    --display-text: black;
+    --pad-bg: rgba(250, 250, 250, 1);
+    --btn-bg: white;
+    --btn-text: black;
+    --accent-red: #E57373;
+    --shadow: rgba(0, 0, 0, 0.26);
+    --box-shadow:
+        inset 0 0 0 3px whitesmoke,
+        0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--header-text);
+}
+
+.btn {
+    height: 72px;
+    border-radius: 8px;
+    font-size: 33px;
+    font-weight: 700;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+.blue {
+    color: var(--accent-blue);
+}
+
+.red {
+    color: var(--accent-red);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.equals {
+    background-color: var(--accent-red);
+    color: white;
+    box-shadow: none;
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.calculator {
+    width: 616px;
+    height: 841px;
+    background-color: var(--calc-bg);
+    border-radius: 24px;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    box-shadow: 0px 10px 30px var(--shadow);
+    overflow: hidden;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 46px 32px 0 32px;
+}
+
+.mode {
+    display: grid;
+    grid-auto-flow: column;
+    background-color: var(--mode-bg);
+    padding: 6px;
+    border-radius: 32px;
+    gap: 32px;
+    box-shadow: 0px 10px 20px var(--shadow);
+}
+
+.mode-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--header-text);
+}
+
+.mode-btn .active {
+    opacity: 1;
+    background-color: var(--btn-bg);
+}
+
+.display {
+    display: grid;
+    justify-items: end;
+    align-content: end;
+    padding: 0 32px 37.5px 32px;
+    overflow: hidden;
+    height: 186px;
+}
+
+.op-color {
+    color: var(--accent-red);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.display .top {
+    font-size: 33px;
+    font-weight: 500;
+    color: var(--header-text);
+    opacity: 0.6;
+    margin-bottom: 8px;
+    min-height: 40px;
+    white-space: nowrap;
+}
+
+.display .botton {
+    font-size: 58px;
+    font-weight: 600;
+    color: var(--display-text);
+    line-height: 1;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    text-align: right;
+    overflow-x: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+}
+
+.keyboard {
+    background-color: var(--pad-bg);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    width: 616px;
+    height: 552px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.operator-style {
+    color: var(--accent-red);
+    font-weight: 800;
+    margin-left: 8px;
+}
+
+[data-theme="light"] .operator-style {
+    color: #d32f2f;
+}
