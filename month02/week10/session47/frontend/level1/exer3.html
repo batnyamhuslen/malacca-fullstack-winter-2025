@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<title>Accordion Example</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
+}
+
+/* Button style */
+.btn{
+    cursor:pointer;
+    padding:10px;
+    background:#007bff;
+    color:white;
+    border:none;
+    width:100%;
+    text-align:left;
+    font-size:16px;
+}
+
+/* Hidden content */
+.content{
+    display:none;
+    padding:10px;
+    background:#f0f0f0;
+    border:1px solid #ddd;
+}
+
+.content.visible{
+    display:block;
+}
+</style>
+
+</head>
+<body>
+
+<button class="btn" id="faq-btn">
+FAQ: JavaScript хэл гэж юу вэ? ▼
+</button>
+
+<div class="content" id="faq-content">
+JavaScript нь web хөтөч дээр ажилладаг програмчлалын хэл юм.
+</div>
+
+<script src="./exer3.js">
+</script>
+
+</body>
+</html>

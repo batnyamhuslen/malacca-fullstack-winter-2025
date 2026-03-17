@@ -56,7 +56,7 @@ public class App extends Application {
         // scene.getStylesheets().add();
         // URL stylesheet = App.class.getResource("/org/openjfx/resources/css/style.css");
         // scene.getStylesheets().add(stylesheet.toString());
-
+        
         stage.setTitle("JavaFX Calculator");
         stage.setScene(scene);
         stage.show();
