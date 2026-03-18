@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <h1>Recapture</h1>
+    <main id="main">
+
+    </main>
+    <h2>exercise 02</h2>
+    <input type="text" id="text-input" placeholder="end bichne uu">
+    <div id="key-display">
+
+    </div>
+
+    <h2>Exercise 03</h2>
+    <div class="comment-box">
+        <textarea id="comment" maxlength="280" placeholder="setgegdel bich"></textarea>
+
+        <div class="counter">
+            <span id="current">0</span> / <span id="max">280</span>
+        </div>
+    </div>
+    <h2>Exercise 04</h2>
+    <form action="" id="register-form">
+        <div class="field">
+            <label>username</label>
+            <input type="text" id="username" placeholder="3-20 temdegt">
+            <span class="error" id="username-error"></span>
+        </div>
+
+        <div class="field">
+            <label>email</label>
+            <input type="text" id="email" placeholder="3-20@gmail.com">
+            <span class="error" id="email-error"></span>
+        </div>
+
+        <div class="field">
+            <label>password</label>
+            <input type="password" id="password" placeholder="8+ temdegt">
+            <div class="strength-bar">
+                <div id="strength-fill"></div>
+            </div>
+            <span class="error" id="password-error"></span>
+        </div>
+        <button type="submit">Register</button>
+        <p id="form-message"></p>
+    </form>
+    <!-- template literal-->
+    <script src="./index.js"></script>
+</body>
+
+</html>

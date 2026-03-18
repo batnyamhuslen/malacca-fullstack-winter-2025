@@ -1,3 +1,4 @@
+<!-- javafx create -->
 https://openjfx.io/ 
 
 mvn archetype:generate \
@@ -11,11 +12,15 @@ mvn archetype:generate \
 
 mvn clean javafx:run
 
+<!-- maven compile -->
+mvn clean compile exec:java -Dexec.mainClass="mn.icode.InputWriter"
 
+<!-- firebase -->
 ~/.bashrc
 firebase login
 firebase init
 
+<!-- deploy firebase -->
 Tusul1-card:             firebase deploy --only hosting:malacca-winter-2025-khuslen-eb0ff
 Tusul2-Simple-Portfolio: firebase deploy --only hosting:malacca-winter-2025-khuslen-8361d
 Tusul2-ver2:             firebase deploy --only hosting:malacca-winter-2025-khuslen-7bbc2
