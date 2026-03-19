@@ -32,6 +32,7 @@ function uptade() {
     } else {
         prevTxt.innerText = prev;
     }
+    
     if (curr.length > 12) {
         currTxt.style.fontSize = '30px';
     } else {
@@ -100,5 +101,54 @@ function backspace() {
     if (curr === '') curr = '0';
     uptade();
 }
+document.addEventListener("keydown", (e) => {
+    const key = e.key;
+    let btn;
+
+    if (!isNaN(key)) {
+        addNum(key);
+        btn = document.getElementById("num" + key);
+    }
+    else if (key === ".") {
+        addNum(".");
+        btn = document.getElementById("dot");
+    }
+    else if (key === "+") {
+        setOp("+");
+        btn = document.getElementById("plus");
+    }
+    else if (key === "-") {
+        setOp("-");
+        btn = document.getElementById("minus");
+    }
+    else if (key === "*") {
+        setOp("*");
+        btn = document.getElementById("multiply");
+    }
+    else if (key === "/") {
+        setOp("/");
+        btn = document.getElementById("divide");
+    }
+    else if (key === "%") {
+        setOp("%");
+        btn = document.getElementById("percent");
+    }
+    else if (key === "Enter" || key === "=") {
+        calculate();
+        btn = document.getElementById("equals");
+    }
+    else if (key === "Backspace") {
+        backspace();
+        btn = document.getElementById("c");
+    }
+    else if (key === "A") {
+        clearAll();
+        btn = document.getElementById("ac");
+    }
+    if (btn) {
+        btn.classList.add("active");
+        setTimeout(() => btn.classList.remove("active"), 150);
+    }
+});
 
 uptade();

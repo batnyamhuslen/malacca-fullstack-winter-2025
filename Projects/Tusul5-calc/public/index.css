@@ -74,6 +74,14 @@ h1 {
     border: none;
     box-shadow: var(--box-shadow);
 }
+.btn:hover {
+    background-color: #ccc;
+    transform: scale(0.95);
+}
+button.active {
+    background-color: #ccc;
+    transform: scale(0.95);
+}
 
 .blue {
     color: var(--accent-blue);
