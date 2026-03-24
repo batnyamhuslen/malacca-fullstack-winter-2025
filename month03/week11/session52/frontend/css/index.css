@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+#loop01, #loop02 {
+    width: 80%;
+    max-width: 600px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#loop01 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#loop02 {
+    min-height: 100px;
+    color: #555;
+}
+
+#loop01 {
+    border-left: 6px solid #4facfe;
+}
+
+#loop02 {
+    border-left: 6px solid #00c6ff;
+}
+.italianfoods{
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    border: 2px solid gray;
+}
+#naadam {
+    background-color: white;
+    width: 150px;
+    height: 70px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gray;
+    border: 2px solid gray;
+}

@@ -20,9 +20,7 @@
     --accent-blue: #90CAF9;
     --accent-red: #E57373;
     --shadow: rgba(0, 0, 0, 0.26);
-    --box-shadow:
-        inset 0 0 0 3px #3b404c,
-        0 20px 40px rgba(0, 0, 0, 0.15);
+    --box-shadow:inset 0 0 0 3px #3b404c,0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="light"] {
