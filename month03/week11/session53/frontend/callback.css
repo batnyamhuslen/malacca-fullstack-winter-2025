@@ -1,0 +1,18 @@
+.output{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    border-radius: 30px;
+}
+.calc{
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    font-size: 30px;
+    font-weight: 700;
+    border: 2px solid black;
+}
