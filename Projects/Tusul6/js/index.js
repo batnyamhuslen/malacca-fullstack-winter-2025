@@ -1,54 +1,45 @@
-const blogs = [
-    {
-        "title": "test Title1",
-        "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
-    },
-    {
-        "title": "test Title2",
-        "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
-    },
-    {
-        "title": "test Title3",
-        "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
-    },
-    {
-        "title": "test Title4",
-        "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
-    },
-    {
-        "title": "test Title5",
-        "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
-    },
-];
+// const blogs = [
+//     {
+//         "title": "test Title1",
+//         "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
+//     },
+//     {
+//         "title": "test Title2",
+//         "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
+//     },
+//     {
+//         "title": "test Title3",
+//         "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
+//     },
+//     {
+//         "title": "test Title4",
+//         "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
+//     },
+//     {
+//         "title": "test Title5",
+//         "body": "    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem reiciendis beatae officiis incidunt esse quo totam nesciunt atque ab dolore?"
+//     },
+// ];
 
 
+
+
+const mainElement = document.querySelector("main");
 
 for (let i = 0; i < blogs.length; i++) {
-   const mainElement = document.querySelector("main");
+    const blog = blogs[i];
+    const index = i + 1;
 
-blogs.forEach((blog, index) => {
     const card = document.createElement("div");
     card.className = "blog-card";
 
-    const indexCircle = document.createElement("div");
-    indexCircle.className = "blog-index";
-    indexCircle.textContent = index + 1;
+    card.innerHTML = `
+        <div class="blog-index">${index}</div>
+        <div class="blog-content">
+            <h1>${blog.title}</h1>
+            <p>${blog.body}</p>
+        </div>
+    `;
 
-    const content = document.createElement("div");
-    content.className = "blog-content";
-
-    const title = document.createElement("h1");
-    title.textContent = blog.title;
-
-    const body = document.createElement("p");
-    body.textContent = blog.body;
-
-    content.appendChild(title);
-    content.appendChild(body);
-    
-    card.appendChild(indexCircle);
-    card.appendChild(content);
-    
     mainElement.appendChild(card);
-});
 }
