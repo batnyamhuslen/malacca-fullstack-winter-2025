@@ -51,6 +51,15 @@ input {
     font-size: 16px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+input:focus {
+    outline: none;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(93, 167, 225, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(93, 167, 225, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(93, 167, 225, 0); }
+}
 
 .blog-card {
     margin:40px 1px;
@@ -58,14 +67,29 @@ input {
     padding: 30px 40px;
     border-radius: 20px;
     position: relative; 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 0px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+
+.blog-card:hover .blog-index {
+    background-color: #2563eb;
+    transform: scale(1.1); 
+    transition: all 0.3s ease;
 }
 
 .blog-index {
     position: absolute;
+    font-size: 15px;
     left: -15px;
     top: -15px;
-    background-color: #79a6d2;
+    background-color: #5DA7E1;
     color: white;
     width: 40px;
     height: 40px;
@@ -73,8 +97,8 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 200;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
 }
 
 h1 {
@@ -89,3 +113,30 @@ p {
     color: #475569;
     line-height: 1.6;
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.blog-card {
+    animation: fadeInUp 0.9s ease-out forwards;
+    opacity: 0; 
+}
+
+.blog-card:nth-child(1) { animation-delay: 0.1s; }
+.blog-card:nth-child(2) { animation-delay: 0.2s; }
+.blog-card:nth-child(3) { animation-delay: 0.3s; }
+.blog-card:nth-child(4) { animation-delay: 0.4s; }
+.blog-card:nth-child(5) { animation-delay: 0.5s; }
+.blog-card:nth-child(6) { animation-delay: 0.6s; }
+.blog-card:nth-child(7) { animation-delay: 0.7s; }
+.blog-card:nth-child(8) { animation-delay: 0.8s; }
+.blog-card:nth-child(9) { animation-delay: 0.9s; }
+.blog-card:nth-child(10) { animation-delay: 0.10s; }

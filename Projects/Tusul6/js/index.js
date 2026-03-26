@@ -1,23 +1,23 @@
 const blogs = [
   {
-    title: "New Road Projects Begin in Ulaanbaatar",
-    body: "Several new road construction projects have started across the capital with the aim of reducing traffic congestion. According to officials, these projects are planned to be completed by the end of this year."
+    title: "Sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    body: "Quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
   },
   {
-    title: "Education Sector Set for Reform",
-    body: "The Ministry of Education has begun working on implementing new policies aimed at improving the quality of general education in schools. These include enhancing teachers' skills and updating the curriculum."
+    title: "Qui est esse",
+    body: "Est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla"
   },
   {
-    title: "Reports Indicate Rising Food Prices",
-    body: "Citizens have reported that the prices of some everyday food products have increased in recent days. Professional organizations have started studying the factors contributing to the price rise."
+    title: "Ea molestias quasi exercitationem repellat qui ipsa sit aut",
+    body: "Et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut"
   },
   {
-    title: "Tourism in Rural Areas is Reviving",
-    body: "As the summer tourism season begins, the number of visitors to local tourist destinations in rural areas has started to increase. Tourism companies are introducing new routes and services."
+    title: "Eum et est occaecati",
+    body: "Ullam et saepe reiciendis voluptatem adipisci sit amet autem assumenda provident rerum culpa quis hic commodi nesciunt rem tenetur doloremque ipsam iure quis sunt voluptatem rerum illo velit"
   },
   {
-    title: "New Medical Equipment Delivered to the Health Sector",
-    body: "Relevant officials announced that modern diagnostic and treatment equipment has begun to be supplied to state hospitals. This is considered important for improving the quality of healthcare services provided to citizens."
+    title: "Nesciunt quas odio",
+    body: "Repudiandae veniam quaerat sunt sed alias aut fugiat sit autem sed est voluptatem omnis possimus esse voluptatibus quis est aut tenetur dolor neque"
   },
   {
     title: "New Public Buses Enter Service",
@@ -62,7 +62,35 @@ const blogs = [
   {
     title: "Educational Programs to Continue During Students' Vacation",
     body: "Several schools and organizations will organize additional learning and development programs during students’ vacation period. These will include courses in languages, information technology, arts, and sports."
-  }
+  },
+  {
+    title: "Нийслэлийн нийтийн тээвэрт шинэ автобуснууд үйлчилгээнд гарлаа",
+    body: "Парк шинэчлэлтийн хүрээнд эко-стандартын шинэ автобуснууд зарим чиглэлд явж эхэллээ. Ингэснээр иргэдийн тав тух, аюулгүй байдал сайжрах хүлээлттэй байна."
+  },
+  {
+    title: "Залуучуудын хөдөлмөр эрхлэлтийг дэмжих хөтөлбөр хэрэгжинэ",
+    body: "Залуучуудыг ажлын байраар хангах, мэргэжлийн сургалтад хамруулах болон стартап бизнесийг дэмжих зорилготой шинэ төсөл нээлтээ хийхээр боллоо."
+  },
+  {
+    title: "Олон улсын стандартад нийцсэн спортын цогцолбор ашиглалтад орно",
+    body: "Аймгийн төвд баригдаж буй шинэ цогцолбор удахгүй үүд хаалгаа нээх бөгөөд хүүхэд залуучууд спортоор хичээллэх боломж илүү нэмэгдэх юм."
+  },
+  {
+    title: "Хөдөө аж ахуйн салбарт ургац хураалтын төлөв эерэг байна",
+    body: "Цаг агаарын нөхцөл байдал тааламжтай байгаа тул энэ жил ургац арвин байхыг мэргэжилтнүүд онцоллоо. Тариаланчид ургац хураалтын бэлтгэлээ базааж эхэлжээ."
+  },
+  {
+    title: "Төрийн цахим үйлчилгээний хүртээмжийг нэмэгдүүлнэ",
+    body: "Цахим шилжилтийн хүрээнд төрийн зарим үйлчилгээг бүрэн онлайн хэлбэрт шилжүүлж, иргэдэд чирэгдэлгүй үйлчлэх ажлууд хийгдэж байна."
+  },
+  {
+    title: "Ирэх сард үндэсний соёл урлагийн наадам зохион байгуулагдана",
+    body: "Өв соёлыг сурталчлах зорилготой тус наадмаар урлагийн тоглолт, үзэсгэлэн болон гар урлалын яармаг худалдаа болох хуваарь гарчээ."
+  },
+  {
+    title: "Бүх нийтээр мод тарих аян албан ёсоор эхэллээ",
+    body: "Хотын ногоон байгууламжийг нэмэгдүүлэх зорилгоор хэд хэдэн байршилд мянга мянган мод, бут сөөг тарих ажил идэвхтэй өрнөж байна."
+  },
 ];
 
 const mainElement = document.querySelector("main");
