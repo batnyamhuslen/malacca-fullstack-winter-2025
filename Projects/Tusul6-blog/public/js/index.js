@@ -93,36 +93,112 @@ const blogs = [
   },
 ];
 
-const mainElement = document.querySelector("main");
+// const mainElement = document.querySelector("main");
+// const inputResult = document.getElementById("input-result");
+// const sentinel = document.getElementById("sentinel");
+// let visiblbeCount = 5;
+// let currentFilter = ""
+
+// function displayBlogs(filterText = "") {
+
+//   mainElement.innerHTML = "";
+
+//   for (let i = 0; i < blogs.length; i++) {
+//     const blog = blogs[i];
+//     const title = blog.title.toLowerCase();
+//     const body = blog.body.toLowerCase();
+//     const search = filterText.toLowerCase();
+
+//     if (title.includes(search) || body.includes(search)) {
+//       const card = document.createElement("div");
+//       card.className = "blog-card";
+
+//       card.innerHTML = `
+//                 <div class="blog-index">${i + 1}</div>
+//                 <div class="blog-content">
+//                     <h1>${blog.title}</h1>
+//                     <p>${blog.body}</p>
+//                 </div>
+//             `;
+//       mainElement.appendChild(card);
+//     }
+
+//   }
+// }
+
+// displayBlogs();
+
+// inputResult.addEventListener("input", (e) => {
+//   displayBlogs(e.target.value);
+// });
+
+const gridContainer = document.getElementById("grid-container");
+const loadingMsg = document.getElementById("loading-msg");
+const scrollAnchor = document.getElementById("scroll-anchor");
 const inputResult = document.getElementById("input-result");
 
-function displayBlogs(filterText = "") {
-    mainElement.innerHTML = "";
+let isFetching = false;
+let currentIndex = 0;
+const batchSize = 5;
+let filteredBlogs = [...blogs];
 
-    for (let i = 0; i < blogs.length; i++) {
-        const blog = blogs[i];
-        const title = blog.title.toLowerCase();
-        const body = blog.body.toLowerCase();
-        const search = filterText.toLowerCase();
+function loadItems() {
+  if (isFetching || currentIndex >= filteredBlogs.length) {
+    return;
+  }
 
-        if (title.includes(search) || body.includes(search)) {
-            const news = document.createElement("div");
-            news.className = "blog-card";
+  isFetching = true;
+  loadingMsg.style.display = "block";
 
-            news.innerHTML = `
+  setTimeout(() => {
+    const end = Math.min(currentIndex + batchSize, filteredBlogs.length);
+
+    for (let i = currentIndex; i < end; i++) {
+      const blog = filteredBlogs[i];
+      const card = document.createElement("div");
+      card.className = "blog-card";
+
+      card.innerHTML = `
                 <div class="blog-index">${i + 1}</div>
                 <div class="blog-content">
                     <h1>${blog.title}</h1>
                     <p>${blog.body}</p>
                 </div>
             `;
-            mainElement.appendChild(news);
-        }
+      gridContainer.insertBefore(card, scrollAnchor);
     }
+
+    currentIndex = end;
+    isFetching = false;
+    loadingMsg.style.display = "none";
+
+
+    if (document.documentElement.scrollHeight <= window.innerHeight && currentIndex < filteredBlogs.length) {
+      loadItems();
+    }
+  }, 1000);
 }
 
-displayBlogs();
-
 inputResult.addEventListener("input", (e) => {
-    displayBlogs(e.target.value);
+  const searchTerm = e.target.value.toLowerCase();
+
+  filteredBlogs = blogs.filter(blog =>
+    blog.title.toLowerCase().includes(searchTerm) ||
+    blog.body.toLowerCase().includes(searchTerm)
+  );
+
+  gridContainer.querySelectorAll('.blog-card').forEach(card => card.remove());
+  currentIndex = 0;
+
+  loadItems();
 });
+
+window.addEventListener("scroll", () => {
+  const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
+
+  if (scrollTop + clientHeight >= scrollHeight - 100) {
+    loadItems();
+  }
+});
+
+loadItems();

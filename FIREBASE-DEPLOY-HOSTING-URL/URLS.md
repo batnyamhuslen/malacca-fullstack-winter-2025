@@ -27,3 +27,4 @@ Tusul2-ver2:             firebase deploy --only hosting:malacca-winter-2025-khus
 Tusul3-cafe:             firebase deploy --only hosting:malacca-winter-2025-khuslen-5300f
 Tusul4-dj:               firebase deploy --only hosting:malacca-winter-2025-khuslen-3a90d
 Tusul5-calc:             firebase deploy --only hosting:malacca-winter-2025-khuslen-cde1a
+Tusul6-blog"             firebase deploy --only hosting:malacca-winter-2025-khuslen-30f2c
