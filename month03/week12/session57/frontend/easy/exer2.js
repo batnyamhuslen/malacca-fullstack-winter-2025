@@ -1,0 +1,11 @@
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const last = nums.pop();
+console.log(last);
+const first = nums.shift();
+console.log(first);
+const numbers = [];
+const array = [2,3,4,5,6,7,8,9];
+const result = array.join("-");
+console.log(result);
+const reverse = array.reverse();
+console.log(reverse);

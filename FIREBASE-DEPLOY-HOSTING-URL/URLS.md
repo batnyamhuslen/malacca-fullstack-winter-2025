@@ -13,7 +13,7 @@ mvn archetype:generate \
 mvn clean javafx:run
 
 <!-- maven compile -->
-mvn clean compile exec:java -Dexec.mainClass="mn.icode.InputWriter"
+mvn clean compile exec:java -Dexec.mainClass="mn.icode.App"
 
 <!-- firebase -->
 ~/.bashrc
