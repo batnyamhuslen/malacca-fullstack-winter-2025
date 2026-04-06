@@ -4,37 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/search.css">
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/card.css">
-    <link rel="stylesheet" href="./css/layout.css">
+    <title>Pokemon</title>
+    <link rel="icon" href="./assets/img/pokemon_go_play_game_cinema_film_movie_icon-icons.com_69163.svg" type="image/svg">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <header id="header">
-            <div class="header-icons">
-                <img style="width: 296px; padding: 40px 0;" src="./assets/img/Pokedex-logo.svg" alt="">
-            </div>
-            <div class="search-bar">
-                <div class="search-input-wrapper">
-                    <img src="./assets/icons/mingcute_search-line.svg" alt="">
-                    <input type="text" id="searchInput" placeholder="  Pokemon name,number or type">
-                </div>
-                <button class="search-btn">Search</button>
-            </div>
-        </header>
 
-        <main id="pokemon-container">
-
-        </main>
+   <div class="container">
+    <header id="header">
+    <div class="search-wrapper">
+        <div class="search-container">
+            <img src="assets/img/search.svg" class="search-icon" alt="search">
+            <input type="text" id="searchInput" placeholder="Pokemon name, number or type">
+            <button id="searchBtn">Search</button>
+        </div>
     </div>
+
+    <div class="secondary-controls">
+        <div class="dropdown" id="sortDropdown">
+            <button class="dropdown-toggle">
+                <span id="sortLabel">Lowest Number First</span>
+                <span class="arrow">▼</span>
+            </button>
+            <!-- <ul class="dropdown-menu">
+                <li data-value="id-asc">Lowest Number First</li>
+                <li data-value="id-desc">Highest Number First</li>
+                <li data-value="az">A-Z</li>
+                <li data-value="za">Z-A</li>
+            </ul> -->
+        </div>
+
+        <button id="filterBtn" class="filter-action-btn">
+            <img src="assets/img/filter.svg" alt="">
+            Filter
+        </button>
+    </div>
+</header>
+
+        <main id="main"></main>
+    
+
+    <div id="filterPanel" class="filter-panel">
+        <div class="filter-header">
+            <h3>Filters</h3>
+            <button id="closeFilter">&times;</button>
+        </div>
+        <div class="filter-content">
+            <div class="filter-group">
+                <h4>Types</h4>
+                <label><input type="checkbox" value="fire"> Fire</label>
+                <label><input type="checkbox" value="water"> Water</label>
+                <label><input type="checkbox" value="grass"> Grass</label>
+                <label><input type="checkbox" value="electric"> Electric</label>
+                <label><input type="checkbox" value="poison"> Poison</label>
+                <label><input type="checkbox" value="psychic"> Psychic</label>
+            </div>
+            <div class="filter-actions">
+                <button id="resetFilters">Reset</button>
+                <button id="applyFilters">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="pokemonModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <button id="closeModal" class="close-modal">&times;</button>
+            <div id="modalBody">
+
+            </div>
+        </div>
+    </div>
+</div>
     <script src="./js/index.js"></script>
 </body>
 
