@@ -1,57 +1,3 @@
-// const URL = "https://pokeapi.co/api/v2/pokemon?limit=100";
-// const NAMEURL = `https://pokeapi.co/api/v2/pokemon/{name}`;
-// const pokemonContainer = document.getElementById("pokemon-container");
-
-// async function fetchPokemon(pokemonUrl) {
-//     const response = await fetch(pokemonUrl);
-//     const fetchedData = await response.json();
-//     const results = fetchedData.results;
-    
-//     for (let i = 0; i<results.length; i++){
-//         const pokemonDetailsUrl = results[i].url;
-//         const pokemonDetailResponse = await fetch(pokemonDetailsUrl);
-//         const pokemonDetailData = await pokemonDetailResponse.json();
-//         console.log(pokemonDetailData);
-//         renderPokemon(pokemonDetailData);
-//     }
-// }
-// async function fetchPokemonDetail(pokemonName) {
-//     const response = await fetch(pokemonName);
-//     const fetchedData = await response.json();
-//     const results = fetchedData.results;
-
-// }
-
-// fetchPokemon(URL);
-// fetchPokemonDetail(NAMEURL);
-
-// function renderPokemon(pokemon){
-//     const pokemonCard = document.createElement("div");
-//     pokemonCard.className = "pokemon-card";
-
-//     const pokemonTitle = document.createElement("h3");
-//     pokemonTitle.className = "pokemon-title";
-//     pokemonTitle.textContent = pokemon.name;
-
-//     const pokemonImage = document.createElement("img");
-//     pokemonImage.className = "pokemon-image";
-//     pokemonImage.style.width = "200px";
-//     pokemonImage.src = pokemon.sprites.other["official-artwork"].front_shiny;
-
-//     const pokemonId = document.createElement("p");
-//     pokemonId.className = "pokemon-id";
-//     pokemonId.textContent =     
-    
-
-//     pokemonCard.appendChild(pokemonTitle);
-//     pokemonCard.appendChild(pokemonImage);
-//     pokemonContainer.appendChild(pokemonCard);
-// }
-
-/**
- * POKEDEX PROJECT - ALL-IN-ONE
- */
-
 const state = {
     POKEMON_DETAILS: [],
     CURRENT_SEARCH: '',
@@ -101,8 +47,11 @@ const TYPE_STYLES = {
     grass: { tag: '#80E177', bg: '#1EBA11' }
 };
 
-
 const main = document.getElementById('main');
+const modal = document.getElementById('pokemonModal');
+const modalBody = document.getElementById('modalBody');
+const closeBtn = document.getElementById('closeModal');
+const searchInput = document.getElementById('searchInput');
 
 function createCard(data) {
     const card = document.createElement('div');
@@ -122,7 +71,6 @@ function createCard(data) {
 
     const typesWrapper = document.createElement('div');
     typesWrapper.className = 'types';
-
     data.types.forEach(t => {
         const type = t.type.name;
         const tag = document.createElement('span');
@@ -130,10 +78,7 @@ function createCard(data) {
         tag.dataset.type = type;
         tag.style.background = 'rgba(255,255,255,0.35)';
         tag.style.backdropFilter = 'blur(4px)';
-        tag.innerHTML = `
-            <img class="type-icon" src="${TYPE_ICONS[type]}">
-            <span>${type}</span>
-        `;
+        tag.innerHTML = `<img class="type-icon" src="${TYPE_ICONS[type]}"><span>${type}</span>`;
         typesWrapper.appendChild(tag);
     });
 
@@ -145,7 +90,6 @@ function createCard(data) {
     extraIcon.style.left = '-10px';
     extraIcon.style.width = '90px';
     extraIcon.style.height = '90px';
-
     card.appendChild(extraIcon);
 
     card.addEventListener('mouseenter', () => {
@@ -155,7 +99,6 @@ function createCard(data) {
             t.style.backdropFilter = 'none';
         });
     });
-
     card.addEventListener('mouseleave', () => {
         card.querySelectorAll('.type').forEach(t => {
             t.style.background = 'rgba(255,255,255,0.35)';
@@ -174,9 +117,10 @@ function render() {
     let list = [...state.POKEMON_DETAILS];
 
     if (state.CURRENT_SEARCH) {
+        const search = state.CURRENT_SEARCH.toLowerCase();
         list = list.filter(p =>
-            p.name.includes(state.CURRENT_SEARCH) ||
-            p.id.toString().includes(state.CURRENT_SEARCH)
+            p.name.toLowerCase().includes(search) ||
+            p.id.toString().includes(search)
         );
     }
 
@@ -196,9 +140,14 @@ function render() {
     list.forEach(p => main.appendChild(createCard(p)));
 }
 
-const modal = document.getElementById('pokemonModal');
-const modalBody = document.getElementById('modalBody');
-const closeBtn = document.getElementById('closeModal');
+function renderStats(stats) {
+    return `<div class="stats">${stats.map(s => `
+        <div class="stat">
+            <span>${s.stat.name.toUpperCase()}</span>
+            <span class="value">${s.base_stat}</span>
+            <div class="bar"><div class="fill" style="width:${s.base_stat}%"></div></div>
+        </div>`).join('')}</div>`;
+}
 
 async function openModal(pokemon) {
     const primaryType = pokemon.types?.[0]?.type.name || 'normal';
@@ -219,11 +168,11 @@ async function openModal(pokemon) {
                     </div>
                     <div class="modal-types">
                         ${pokemon.types.map(t => {
-                            const type = t.type.name;
-                            const icon = TYPE_ICONS[type] ? `<img class="type-icon" src="${TYPE_ICONS[type]}">` : '';
-                            const badgeBg = TYPE_STYLES[type]?.tag || 'rgba(255,255,255,0.25)';
-                            return `<span class="modal-type" style="background: ${badgeBg};">${icon}<span>${type}</span></span>`;
-                        }).join(' ')}
+        const type = t.type.name;
+        const icon = TYPE_ICONS[type] ? `<img class="type-icon" src="${TYPE_ICONS[type]}">` : '';
+        const badgeBg = TYPE_STYLES[type]?.tag || 'rgba(255,255,255,0.25)';
+        return `<span class="modal-type" style="background: ${badgeBg};">${icon}<span>${type}</span></span>`;
+    }).join(' ')}
                     </div>
                 </div>
             </div>
@@ -252,8 +201,8 @@ async function openModal(pokemon) {
             </div>
         </div>
     `;
-    modal.classList.add('open');
 
+    modal.classList.add('open');
 
     const tabButtons = modalBody.querySelectorAll('.tab-button');
     const tabPanels = modalBody.querySelectorAll('.tab-panel');
@@ -265,7 +214,6 @@ async function openModal(pokemon) {
             tabPanels.forEach(p => p.style.display = (p.dataset.panel === tab) ? 'block' : 'none');
         });
     });
-
 
     try {
         if (pokemon.species?.url) {
@@ -302,43 +250,33 @@ async function openModal(pokemon) {
     } catch (err) { console.error(err); }
 }
 
-function renderStats(stats) {
-    return `<div class="stats">${stats.map(s => `
-        <div class="stat">
-            <span>${s.stat.name.toUpperCase()}</span>
-            <span class="value">${s.base_stat}</span>
-            <div class="bar"><div class="fill" style="width:${s.base_stat}%"></div></div>
-        </div>`).join('')}</div>`;
-}
-
 function initFilters() {
-    const searchInput = document.getElementById('searchInput');
-    const sortDropdown = document.getElementById('sortDropdown');
-    const filterPanel = document.getElementById('filterPanel');
 
-    searchInput?.addEventListener('input', e => {
-        state.CURRENT_SEARCH = e.target.value.toLowerCase().trim();
+    document.getElementById('searchBtn')?.addEventListener('click', () => {
+        state.CURRENT_SEARCH = searchInput.value.toLowerCase().trim();
+        render();
+    });
+    searchInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            state.CURRENT_SEARCH = searchInput.value.toLowerCase().trim();
+            render();
+        }
+    });
+
+
+    const sortDropdown = document.getElementById('sortDropdown');
+    sortDropdown?.addEventListener('change', () => {
+        state.CURRENT_SORT = sortDropdown.value;
         render();
     });
 
-    sortDropdown?.querySelectorAll('li').forEach(option => {
-        option.addEventListener('click', () => {
-            state.CURRENT_SORT = option.dataset.value;
-            document.getElementById('sortLabel').textContent = option.textContent;
-            sortDropdown.classList.remove('open');
-            render();
-        });
-    });
 
-    sortDropdown?.querySelector('.dropdown-toggle')?.addEventListener('click', e => {
-        e.stopPropagation();
-        sortDropdown.classList.toggle('open');
-    });
-
+    const filterPanel = document.getElementById('filterPanel');
     document.getElementById('filterBtn')?.addEventListener('click', e => {
         e.stopPropagation();
         filterPanel.classList.toggle('open');
     });
+
 
     document.getElementById('applyFilters')?.addEventListener('click', () => {
         state.SELECTED_TYPES = [...document.querySelectorAll('.filter-group input:checked')].map(i => i.value);
@@ -346,15 +284,18 @@ function initFilters() {
         render();
     });
 
+   
     document.getElementById('resetFilters')?.addEventListener('click', () => {
         document.querySelectorAll('.filter-group input').forEach(cb => cb.checked = false);
         state.SELECTED_TYPES = [];
         render();
     });
+
+    document.getElementById('closeFilter')?.addEventListener('click', () => filterPanel.classList.remove('open'));
 }
 
 function loadPokemons() {
-    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1000')
+    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=500')
         .then(res => res.json())
         .then(data => {
             Promise.all(data.results.map(p => fetch(p.url).then(res => res.json())))
@@ -365,22 +306,21 @@ function loadPokemons() {
         });
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Header logic
+
     const header = document.getElementById('header');
     if (header) {
         const wrapper = document.createElement('div');
         wrapper.className = 'header-icons';
-        wrapper.innerHTML = `<img src="assets/img/Pokedex-logo.svg">`;
+        wrapper.innerHTML = `<img src="assets/img/Pokedex-logo.svg" alt="Pokedex Logo">`;
         header.prepend(wrapper);
     }
 
-  
+
     closeBtn?.addEventListener('click', () => modal.classList.remove('open'));
+
     window.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.remove('open');
-        if (!e.target.closest('#sortDropdown')) document.getElementById('sortDropdown')?.classList.remove('open');
     });
 
     initFilters();
