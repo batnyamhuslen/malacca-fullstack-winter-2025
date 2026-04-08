@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS2 AK-47 Range</title>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; font-family: 'Arial Black', sans-serif; }
+        #crosshair {
+            position: absolute; top: 50%; left: 50%;
+            width: 14px; height: 14px; transform: translate(-50%, -50%); pointer-events: none;
+        }
+        #crosshair::before, #crosshair::after {
+            content: ''; position: absolute; background: #00ff00;
+        }
+        #crosshair::before { left: 50%; top: 0; width: 2px; height: 100%; margin-left: -1px; }
+        #crosshair::after { top: 50%; left: 0; width: 100%; height: 2px; margin-top: -1px; }
+        
+        #hud {
+            position: absolute; bottom: 30px; width: 100%;
+            display: flex; justify-content: center; gap: 60px;
+            color: #fff; text-shadow: 2px 2px #000;
+        }
+        .stat { text-align: center; border-bottom: 3px solid #ff9d00; padding: 5px 20px; background: rgba(0,0,0,0.5); }
+        .label { font-size: 10px; color: #ff9d00; text-transform: uppercase; }
+        .val { font-size: 28px; }
+    </style>
+</head>
+<body>
+    <div id="crosshair"></div>
+    <div id="hud">
+        <div class="stat"><div class="label">HP</div><div class="val">100</div></div>
+        <div class="stat"><div class="label">AK-47</div><div class="val" id="ammo">30</div></div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+
+        // --- Basic Setup ---
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x1a1a1a);
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+        // --- Lights ---
+        const sun = new THREE.DirectionalLight(0xffffff, 2);
+        sun.position.set(5, 10, 5);
+        sun.castShadow = true;
+        scene.add(sun, new THREE.AmbientLight(0xffffff, 0.3));
+
+        // --- Build the AK-47 ---
+        const ak47 = new THREE.Group();
+        const matSteel = new THREE.MeshStandardMaterial({ color: 0x151515, metalness: 0.8, roughness: 0.2 });
+        const matWood = new THREE.MeshStandardMaterial({ color: 0x4d2a15, roughness: 0.8 });
+
+        // Receiver/Body
+        const receiver = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.1, 0.4), matSteel);
+        ak47.add(receiver);
+        // Barrel
+        const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.35), matSteel);
+        barrel.rotation.x = Math.PI/2; barrel.position.z = -0.35;
+        ak47.add(barrel);
+        // Magazine (Curved style)
+        const mag = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.2, 0.08), matSteel);
+        mag.position.set(0, -0.12, -0.1); mag.rotation.x = 0.3;
+        ak47.add(mag);
+        // Stock
+        const stock = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.08, 0.25), matWood);
+        stock.position.set(0, -0.02, 0.3);
+        ak47.add(stock);
+
+        scene.add(ak47);
+
+        // Muzzle Flash
+        const flash = new THREE.PointLight(0xffaa00, 0, 3);
+        flash.position.set(0, 0, -0.6);
+        ak47.add(flash);
+
+        // --- Targets & Ground ---
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshStandardMaterial({color:0x333333}));
+        floor.rotation.x = -Math.PI/2; floor.receiveShadow = true;
+        scene.add(floor);
+
+        const targets = [];
+        for(let i=0; i<10; i++) {
+            const t = new THREE.Mesh(new THREE.CapsuleGeometry(0.4, 1), new THREE.MeshStandardMaterial({color: 0xaa2222}));
+            t.position.set(Math.random()*30-15, 1, Math.random()*-30-5);
+            scene.add(t);
+            targets.push(t);
+        }
+
+        // --- Controls & Logic ---
+        const controls = new PointerLockControls(camera, document.body);
+        document.addEventListener('click', () => controls.lock());
+        
+        let ammo = 30;
+        const raycaster = new THREE.Raycaster();
+
+        document.addEventListener('mousedown', () => {
+            if (!controls.isLocked || ammo <= 0) return;
+            
+            ammo--;
+            document.getElementById('ammo').innerText = ammo;
+
+            // Recoil Animation (Heavy AK kick)
+            ak47.position.z += 0.15;
+            ak47.rotation.x -= 0.12;
+            flash.intensity = 15;
+            setTimeout(() => flash.intensity = 0, 40);
+
+            // Hit Scan
+            raycaster.setFromCamera(new THREE.Vector2(0,0), camera);
+            const hits = raycaster.intersectObjects(targets);
+            if (hits.length > 0) {
+                const h = hits[0].object;
+                h.material.color.set(0xffffff);
+                setTimeout(() => {
+                    h.position.set(Math.random()*30-15, 1, Math.random()*-30-5);
+                    h.material.color.set(0xaa2222);
+                }, 100);
+            }
+        });
+
+        // --- Main Loop ---
+        const keys = { w:false, a:false, s:false, d:false };
+        document.addEventListener('keydown', (e) => keys[e.key.toLowerCase()] = true);
+        document.addEventListener('keyup', (e) => keys[e.key.toLowerCase()] = false);
+        
+        const velocity = new THREE.Vector3();
+        const clock = new THREE.Clock();
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            const time = clock.getElapsedTime();
+
+            if (controls.isLocked) {
+                // Movement
+                velocity.x -= velocity.x * 10 * delta;
+                velocity.z -= velocity.z * 10 * delta;
+                if (keys.w) velocity.z += 40 * delta;
+                if (keys.s) velocity.z -= 40 * delta;
+                if (keys.a) velocity.x -= 40 * delta;
+                if (keys.d) velocity.x += 40 * delta;
+                controls.moveRight(velocity.x * delta);
+                controls.moveForward(velocity.z * delta);
+
+                // AK Follow + Sway
+                let swayX = Math.sin(time * 4) * 0.005;
+                let swayY = Math.cos(time * 8) * 0.005;
+                
+                ak47.position.copy(camera.position);
+                ak47.rotation.copy(camera.rotation);
+                ak47.updateMatrix();
+                ak47.translateZ(-0.4);
+                ak47.translateX(0.18 + (velocity.length() > 0.1 ? swayX : 0));
+                ak47.translateY(-0.2 + (velocity.length() > 0.1 ? swayY : 0));
+
+                // Return from recoil
+                ak47.position.z = THREE.MathUtils.lerp(ak47.position.z, 0, 0.15);
+                ak47.rotation.x = THREE.MathUtils.lerp(ak47.rotation.x, 0, 0.1);
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

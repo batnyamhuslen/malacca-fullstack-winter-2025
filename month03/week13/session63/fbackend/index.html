@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Realistic 3D WebGL Racer</title>
+    <style>
+        body { margin: 0; background: #111; overflow: hidden; }
+        #speedo { position: absolute; bottom: 20px; right: 20px; color: white; font-family: 'Courier New', Courier, monospace; font-size: 2rem; }
+    </style>
+</head>
+<body>
+    <div id="speedo">0 KM/H</div>
+    <script type="importmap">
+        { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+
+        // --- CORE SETUP ---
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x87CEEB, 0.01);
+
+        const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // --- ENVIRONMENT ---
+        const light = new THREE.DirectionalLight(0xffffff, 1.5);
+        light.position.set(50, 100, 50);
+        light.castShadow = true;
+        light.shadow.mapSize.width = 2048;
+        light.shadow.mapSize.height = 2048;
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+        // Textured Road
+        const loader = new THREE.TextureLoader();
+        const roadTex = loader.load('https://threejs.org/examples/textures/grid.png'); // Placeholder grid
+        roadTex.wrapS = roadTex.wrapT = THREE.RepeatWrapping;
+        roadTex.repeat.set(10, 100);
+        
+        const ground = new THREE.Mesh(
+            new THREE.PlaneGeometry(100, 1000),
+            new THREE.MeshStandardMaterial({ map: roadTex, color: 0x555555 })
+        );
+        ground.rotation.x = -Math.PI / 2;
+        ground.receiveShadow = true;
+        scene.add(ground);
+
+        // --- CAR ASSEMBLY ---
+        const car = new THREE.Group();
+        
+        // Glossy Body
+        const bodyMat = new THREE.MeshStandardMaterial({ color: 0x1122ff, metalness: 0.8, roughness: 0.2 });
+        const body = new THREE.Mesh(new THREE.BoxGeometry(1.2, 0.6, 2.5), bodyMat);
+        body.position.y = 0.5;
+        body.castShadow = true;
+        car.add(body);
+
+        // Glass
+        const glass = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.5, 1.2), new THREE.MeshStandardMaterial({ color: 0x000000, roughness: 0, transparent: true, opacity: 0.7 }));
+        glass.position.set(0, 0.9, -0.1);
+        car.add(glass);
+
+        // Wheels
+        const wheelGeo = new THREE.CylinderGeometry(0.35, 0.35, 0.3, 32);
+        const wheelMat = new THREE.MeshStandardMaterial({ color: 0x111111 });
+        const wheels = [];
+        const wheelPos = [[-0.7, 0.35, 0.8], [0.7, 0.35, 0.8], [-0.7, 0.35, -0.8], [0.7, 0.35, -0.8]];
+        
+        wheelPos.forEach(pos => {
+            const w = new THREE.Mesh(wheelGeo, wheelMat);
+            w.rotation.z = Math.PI / 2;
+            w.position.set(...pos);
+            w.castShadow = true;
+            car.add(w);
+            wheels.push(w);
+        });
+
+        scene.add(car);
+
+        // --- PHYSICS VARS ---
+        let velocity = 0;
+        let steering = 0;
+        const keys = {};
+        const speedo = document.getElementById('speedo');
+
+        window.addEventListener('keydown', e => keys[e.code] = true);
+        window.addEventListener('keyup', e => keys[e.code] = false);
+
+        function updatePhysics() {
+            // Acceleration / Braking
+            if (keys['KeyW']) velocity += 0.008;
+            if (keys['KeyS']) velocity -= 0.015;
+            
+            // Friction/Drag
+            velocity *= 0.985;
+
+            // Steering
+            if (keys['KeyA']) steering += 0.005;
+            if (keys['KeyD']) steering -= 0.005;
+            steering *= 0.92; // Auto-center steering
+
+            // Apply movement
+            car.rotation.y += steering * (velocity * 0.5);
+            car.translateZ(velocity);
+
+            // Visual Wheel Tilt & Rotation
+            wheels.forEach(w => w.rotation.x += velocity * 2);
+            
+            // Update UI
+            speedo.innerText = `${Math.abs(Math.round(velocity * 400))} KM/H`;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            updatePhysics();
+
+            // Smooth Follow Camera
+            const offset = new THREE.Vector3(0, 3, -8).applyQuaternion(car.quaternion).add(car.position);
+            camera.position.lerp(offset, 0.1);
+            camera.lookAt(car.position.clone().add(new THREE.Vector3(0, 1, 0)));
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

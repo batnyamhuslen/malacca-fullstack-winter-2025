@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Professional Platformer</title>
+    <style>
+        body {
+            margin: 0;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+        canvas {
+            background: linear-gradient(to bottom, #5c94fa 0%, #ffffff 100%);
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            image-rendering: pixelated; /* Keeps that retro look sharp */
+        }
+        .ui { margin-top: 15px; text-align: center; }
+        kbd {
+            background: #444;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #777;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="game"></canvas>
+    <div class="ui">
+        <p>Use <kbd>←</kbd> <kbd>→</kbd> to Move | <kbd>Space</kbd> or <kbd>↑</kbd> to Jump</p>
+    </div>
+
+<script>
+/** 
+ * GAME CONFIGURATION 
+ */
+const CONFIG = {
+    width: 800,
+    height: 480,
+    gravity: 0.6,
+    friction: 0.85,
+    playerSpeed: 0.7,
+    maxSpeed: 6,
+    jumpImpulse: -12
+};
+
+/**
+ * CORE ENGINE CLASS
+ */
+class Engine {
+    constructor() {
+        this.canvas = document.getElementById('game');
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.width = CONFIG.width;
+        this.canvas.height = CONFIG.height;
+        
+        this.keys = {};
+        this.cameraX = 0;
+        
+        this.init();
+    }
+
+    init() {
+        // Event Listeners
+        window.addEventListener('keydown', e => this.keys[e.code] = true);
+        window.addEventListener('keyup', e => this.keys[e.code] = false);
+
+        // Game Objects
+        this.player = new Player(100, 200);
+        this.platforms = [
+            new Platform(0, 440, 2000, 40), // Ground
+            new Platform(300, 320, 150, 20),
+            new Platform(550, 240, 150, 20),
+            new Platform(850, 320, 200, 20),
+            new Platform(1100, 200, 100, 20),
+            new Platform(1300, 320, 400, 20)
+        ];
+
+        this.loop();
+    }
+
+    update() {
+        this.player.update(this.keys, this.platforms);
+
+        // Camera Follow Logic (Smooth Interpolation)
+        let targetCameraX = this.player.x - CONFIG.width / 3;
+        this.cameraX += (targetCameraX - this.cameraX) * 0.1;
+        
+        // Clamp Camera
+        if (this.cameraX < 0) this.cameraX = 0;
+    }
+
+    draw() {
+        this.ctx.clearRect(0, 0, CONFIG.width, CONFIG.height);
+        
+        this.ctx.save();
+        this.ctx.translate(-this.cameraX, 0); // Move world based on camera
+
+        // Draw World
+        this.platforms.forEach(p => p.draw(this.ctx));
+        this.player.draw(this.ctx);
+
+        this.ctx.restore();
+    }
+
+    loop() {
+        this.update();
+        this.draw();
+        requestAnimationFrame(() => this.loop());
+    }
+}
+
+/**
+ * PLAYER ENTITY
+ */
+class Player {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.w = 32;
+        this.h = 48;
+        this.vx = 0;
+        this.vy = 0;
+        this.onGround = false;
+        this.color = "#E74C3C";
+    }
+
+    update(keys, platforms) {
+        // Input Handling
+        if (keys['ArrowRight']) this.vx += CONFIG.playerSpeed;
+        if (keys['ArrowLeft']) this.vx -= CONFIG.playerSpeed;
+        
+        if ((keys['Space'] || keys['ArrowUp']) && this.onGround) {
+            this.vy = CONFIG.jumpImpulse;
+            this.onGround = false;
+        }
+
+        // Apply Physics
+        this.vy += CONFIG.gravity;
+        this.vx *= CONFIG.friction;
+
+        // Cap Speeds
+        if (Math.abs(this.vx) > CONFIG.maxSpeed) this.vx = Math.sign(this.vx) * CONFIG.maxSpeed;
+
+        // Movement Axis Separation (Better Collisions)
+        this.x += this.vx;
+        this.checkCollisions(platforms, 'horizontal');
+        
+        this.y += this.vy;
+        this.onGround = false;
+        this.checkCollisions(platforms, 'vertical');
+    }
+
+    checkCollisions(platforms, axis) {
+        platforms.forEach(p => {
+            if (this.x < p.x + p.w && this.x + this.w > p.x &&
+                this.y < p.y + p.h && this.y + this.h > p.y) {
+                
+                if (axis === 'horizontal') {
+                    if (this.vx > 0) this.x = p.x - this.w;
+                    if (this.vx < 0) this.x = p.x + p.w;
+                    this.vx = 0;
+                } else {
+                    if (this.vy > 0) {
+                        this.y = p.y - this.h;
+                        this.vy = 0;
+                        this.onGround = true;
+                    }
+                    if (this.vy < 0) {
+                        this.y = p.y + p.h;
+                        this.vy = 0;
+                    }
+                }
+            }
+        });
+    }
+
+    draw(ctx) {
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+        
+        // Simple "Eyes" to show direction
+        ctx.fillStyle = "white";
+        let eyeOffset = this.vx >= 0 ? 20 : 5;
+        ctx.fillRect(this.x + eyeOffset, this.y + 10, 8, 8);
+    }
+}
+
+/**
+ * PLATFORM ENTITY
+ */
+class Platform {
+    constructor(x, y, w, h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+    }
+
+    draw(ctx) {
+        ctx.fillStyle = "#8B4513";
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+        // Top grass layer
+        ctx.fillStyle = "#2ECC71";
+        ctx.fillRect(this.x, this.y, this.w, 10);
+    }
+}
+
+// Start Game
+new Engine();
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeEngine v2.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div id="game-master" class="viewport-wrapper">
+        <div class="screen" id="battle-screen">
+            
+            <div class="platform opponent-side">
+                <div class="stat-box animate__animated animate__fadeInDown">
+                    <div class="header"><span>MEWTWO</span><span class="lvl">Lv100</span></div>
+                    <div class="hp-track"><div id="enemy-hp" class="hp-bar"></div></div>
+                </div>
+                <img id="enemy-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/150.gif" class="sprite main-sprite">
+            </div>
+
+            <div class="platform player-side">
+                <img id="player-sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/6.gif" class="sprite main-sprite">
+                <div class="stat-box animate__animated animate__fadeInUp">
+                    <div class="header"><span>CHARIZARD</span><span class="lvl">Lv100</span></div>
+                    <div class="hp-track"><div id="player-hp" class="hp-bar"></div></div>
+                    <div class="hp-numbers"><span id="p-hp-cur">250</span>/<span id="p-hp-max">250</span></div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="ui-panel">
+            <div class="message-display">
+                <p id="typewriter-text"></p>
+            </div>
+            <div class="control-grid" id="menu">
+                <button class="move-btn" data-move="fire_blast">FIRE BLAST</button>
+                <button class="move-btn" data-move="slash">SLASH</button>
+                <button class="move-btn" data-move="recover">RECOVER</button>
+                <button class="move-btn" data-move="toxic">TOXIC</button>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

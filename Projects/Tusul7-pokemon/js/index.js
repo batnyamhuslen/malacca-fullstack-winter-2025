@@ -156,9 +156,10 @@ async function openModal(pokemon) {
     modalBody.innerHTML = `
         <div class="modal-header">
             <div class="modal-pokemon-card" style="background: ${bgStyle};">
+               <img id="group"src="./assets/img/Group_239.svg" alt="zurag">
                 <div class="modal-left">
                     <div class="modal-image-wrapper">
-                        <img src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" alt="${pokemon.name}">
+                        <img id="modal-img" src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" alt="${pokemon.name}">
                     </div>
                 </div>
                 <div class="modal-right">
@@ -166,6 +167,7 @@ async function openModal(pokemon) {
                         <h2>${pokemon.name}</h2>
                         <span class="modal-pokemon-id">#${pokemon.id.toString().padStart(3, '0')}</span>
                     </div>
+                    <br>
                     <div class="modal-types">
                         ${pokemon.types.map(t => {
         const type = t.type.name;
