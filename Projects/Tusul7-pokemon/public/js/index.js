@@ -2,7 +2,13 @@ const state = {
     POKEMON_DETAILS: [],
     CURRENT_SEARCH: '',
     CURRENT_SORT: 'id-asc',
-    SELECTED_TYPES: []
+    SELECTED_TYPES: [],
+    ITEMS_PER_PAGE: 16,
+    CURRENT_PAGE: 0,
+    TOTAL_POKEMON: 0,
+    IS_LOADING: false,
+    FILTERED_LIST: [],
+    OBSERVER: null
 };
 
 const TYPE_ICONS = {
@@ -116,6 +122,7 @@ function render() {
     main.innerHTML = '';
     let list = [...state.POKEMON_DETAILS];
 
+    // Apply search filter
     if (state.CURRENT_SEARCH) {
         const search = state.CURRENT_SEARCH.toLowerCase();
         list = list.filter(p =>
@@ -124,20 +131,56 @@ function render() {
         );
     }
 
+    // Apply type filters
     if (state.SELECTED_TYPES.length) {
         list = list.filter(p =>
             p.types.some(t => state.SELECTED_TYPES.includes(t.type.name))
         );
     }
 
+    // Apply sorting
     switch (state.CURRENT_SORT) {
-        case 'id-desc': list.sort((a, b) => b.id - a.id); break;
-        case 'az': list.sort((a, b) => a.name.localeCompare(b.name)); break;
-        case 'za': list.sort((a, b) => b.name.localeCompare(a.name)); break;
-        default: list.sort((a, b) => a.id - b.id);
+        case 'id-desc':
+            list.sort((a, b) => b.id - a.id);
+            break;
+        case 'az':
+            list.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 'za':
+            list.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        default:
+            list.sort((a, b) => a.id - b.id);
     }
 
-    list.forEach(p => main.appendChild(createCard(p)));
+    // Reset pagination and state
+    state.CURRENT_PAGE = 0;
+    state.IS_LOADING = false;
+    state.FILTERED_LIST = list;
+
+    renderPage();
+}
+
+function renderPage() {
+    const start = state.CURRENT_PAGE * state.ITEMS_PER_PAGE;
+    const end = start + state.ITEMS_PER_PAGE;
+    const pageItems = state.FILTERED_LIST.slice(start, end);
+
+    pageItems.forEach(p => main.appendChild(createCard(p)));
+
+    // Add loading indicator if there are more items
+    if (end < state.FILTERED_LIST.length) {
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'loading-indicator';
+        loadingDiv.className = 'loading-indicator';
+        loadingDiv.innerHTML = '<img src="assets/img/loader.svg" alt="Loading..." class="loader-img">';
+        main.appendChild(loadingDiv);
+        
+        // Observe the new loader
+        if (state.OBSERVER) {
+            state.OBSERVER.observe(loadingDiv);
+        }
+    }
 }
 
 function renderStats(stats) {
@@ -156,7 +199,7 @@ async function openModal(pokemon) {
     modalBody.innerHTML = `
         <div class="modal-header">
             <div class="modal-pokemon-card" style="background: ${bgStyle};">
-               <img id="group"src="./assets/img/Group_239.svg" alt="zurag">
+               <img id="group" src="./assets/img/Group_239.svg" alt="zurag">
                 <div class="modal-left">
                     <div class="modal-image-wrapper">
                         <img id="modal-img" src="${pokemon.sprites.other['official-artwork'].front_default || pokemon.sprites.front_default}" alt="${pokemon.name}">
@@ -198,7 +241,7 @@ async function openModal(pokemon) {
             </div>
             <div class="tab-panel" data-panel="evolution" style="display:none;">
                 <div class="evolution-grid" id="evoGrid">
-                    <div class="evo-items"><img src="assets/img/loader.svg" alt="Loading..."></div>
+                    <div class="evo-items"><img src="assets/img/loader.svg" alt="Loading..." class="loader-img"></div>
                 </div>
             </div>
         </div>
@@ -252,26 +295,87 @@ async function openModal(pokemon) {
     } catch (err) { console.error(err); }
 }
 
-function initFilters() {
+function setupInfiniteScroll() {
+    // Disconnect old observer if it exists
+    if (state.OBSERVER) {
+        state.OBSERVER.disconnect();
+        state.OBSERVER = null;
+    }
 
+    const observerOptions = {
+        root: null,
+        rootMargin: '100px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !state.IS_LOADING) {
+                const nextPage = state.CURRENT_PAGE + 1;
+                const start = nextPage * state.ITEMS_PER_PAGE;
+
+                if (start < state.FILTERED_LIST.length) {
+                    state.IS_LOADING = true;
+                    state.CURRENT_PAGE = nextPage;
+
+                    setTimeout(() => {
+                        const newPageItems = state.FILTERED_LIST.slice(
+                            start,
+                            start + state.ITEMS_PER_PAGE
+                        );
+
+                        newPageItems.forEach(p => main.appendChild(createCard(p)));
+
+                        const oldLoader = document.getElementById('loading-indicator');
+                        if (oldLoader) oldLoader.remove();
+
+                        // Add new loader if there are more items
+                        if ((start + state.ITEMS_PER_PAGE) < state.FILTERED_LIST.length) {
+                            const loadingDiv = document.createElement('div');
+                            loadingDiv.id = 'loading-indicator';
+                            loadingDiv.className = 'loading-indicator';
+                            loadingDiv.innerHTML = '<img src="assets/img/loader.svg" alt="Loading..." class="loader-img">';
+                            main.appendChild(loadingDiv);
+
+                            observer.observe(loadingDiv);
+                        }
+
+                        state.IS_LOADING = false;
+                    }, 1000);
+                }
+            }
+        });
+    }, observerOptions);
+
+    state.OBSERVER = observer;
+
+    const initialLoader = document.getElementById('loading-indicator');
+    if (initialLoader) {
+        observer.observe(initialLoader);
+    }
+}
+
+function initFilters() {
     document.getElementById('searchBtn')?.addEventListener('click', () => {
         state.CURRENT_SEARCH = searchInput.value.toLowerCase().trim();
         render();
+        setupInfiniteScroll();
     });
+
     searchInput?.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             state.CURRENT_SEARCH = searchInput.value.toLowerCase().trim();
             render();
+            setupInfiniteScroll();
         }
     });
-
 
     const sortDropdown = document.getElementById('sortDropdown');
     sortDropdown?.addEventListener('change', () => {
         state.CURRENT_SORT = sortDropdown.value;
         render();
+        setupInfiniteScroll();
     });
-
 
     const filterPanel = document.getElementById('filterPanel');
     document.getElementById('filterBtn')?.addEventListener('click', e => {
@@ -279,37 +383,38 @@ function initFilters() {
         filterPanel.classList.toggle('open');
     });
 
-
     document.getElementById('applyFilters')?.addEventListener('click', () => {
         state.SELECTED_TYPES = [...document.querySelectorAll('.filter-group input:checked')].map(i => i.value);
         filterPanel.classList.remove('open');
         render();
+        setupInfiniteScroll();
     });
 
-   
     document.getElementById('resetFilters')?.addEventListener('click', () => {
         document.querySelectorAll('.filter-group input').forEach(cb => cb.checked = false);
         state.SELECTED_TYPES = [];
         render();
+        setupInfiniteScroll();
     });
 
     document.getElementById('closeFilter')?.addEventListener('click', () => filterPanel.classList.remove('open'));
 }
 
 function loadPokemons() {
-    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=500')
+    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=10000')
         .then(res => res.json())
         .then(data => {
+            state.TOTAL_POKEMON = data.count;
             Promise.all(data.results.map(p => fetch(p.url).then(res => res.json())))
                 .then(results => {
                     state.POKEMON_DETAILS = results;
                     render();
+                    setupInfiniteScroll();
                 });
         });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
     const header = document.getElementById('header');
     if (header) {
         const wrapper = document.createElement('div');
@@ -317,7 +422,6 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.innerHTML = `<img src="assets/img/Pokedex-logo.svg" alt="Pokedex Logo">`;
         header.prepend(wrapper);
     }
-
 
     closeBtn?.addEventListener('click', () => modal.classList.remove('open'));
 

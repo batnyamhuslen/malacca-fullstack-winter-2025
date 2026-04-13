@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+    <link rel="icon" href="./assets/img/pokemon_go_play_game_cinema_film_movie_icon-icons.com_69163.svg"
+        type="image/svg">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <header id="header">
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <img src="assets/img/search.svg" class="search-icon" alt="search">
+                    <input type="text" id="searchInput" placeholder="Pokemon name, number or type">
+                    <button id="searchBtn">Search</button>
+                </div>
+            </div>
+
+            <div class="secondary-controls">
+                <div class="select-wrapper">
+                    <select id="sortDropdown">
+                        <option value="id-asc">Lowest Number First</option>
+                        <option value="id-desc">Highest Number First</option>
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                    </select>
+                </div>
+
+                <button id="filterBtn" class="filter-action-btn">
+                    <img src="assets/img/filter.svg" alt="">
+                    Filter
+                </button>
+            </div>
+        </header>
+
+        <main id="main"></main>
+
+
+        <div id="filterPanel" class="filter-panel">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button class="close-filter" id="closeFilter">&times;</button>
+            </div>
+            <hr>
+            <div class="filter-content">
+                <h4>Type</h4>
+                <div class="filter-group">
+
+                    <div class="labels">
+                        <label><input type="checkbox" value="normal"> Normal</label>
+                        <label><input type="checkbox" value="fighting"> Fighting</label>
+                        <label><input type="checkbox" value="flying"> Flying</label>
+                        <label><input type="checkbox" value="poison"> Poison</label>
+                        <label><input type="checkbox" value="ground"> Ground</label>
+                        <label><input type="checkbox" value="steel"> Steel</label>
+                        <label><input type="checkbox" value="fire"> Fire</label>
+                        <label><input type="checkbox" value="water"> Water</label>
+                        <label><input type="checkbox" value="grass"> Grass</label>
+                    </div>
+                    <div class="labels">
+                        <label><input type="checkbox" value="dragon"> Dragon</label>
+                        <label><input type="checkbox" value="dark"> Dark</label>
+                        <label><input type="checkbox" value="fairy"> Fairy</label>
+                        <label><input type="checkbox" value="electric"> Electric</label>
+                        <label><input type="checkbox" value="rock"> Rock</label>
+                        <label><input type="checkbox" value="bug"> Bug</label>
+                        <label><input type="checkbox" value="ghost"> Ghost</label>
+                        <label><input type="checkbox" value="psychic"> Psychic</label>
+                        <label><input type="checkbox" value="ice"> Ice</label>
+                    </div>
+                </div>
+                <h4>Height</h4>
+                <div class="filter-height">
+                    <div class="small-to-large">
+                        <div class="filter-height-img">
+                            <img src="./assets/img/filter-img1.svg" alt="">
+                        </div>
+                        <div class="filter-height-img">
+                            <img src="./assets/img/filter-img2.svg" alt="">
+                        </div>
+                        <div class="filter-height-img">
+                            <img src="./assets/img/filter-img3.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="small-to-large">
+                        <div class="filter-height-img">
+                            <img src="./assets/img/small-weight.svg" alt="">
+                        </div>
+                        <div class="filter-height-img">
+                            <img src="./assets/img/medium-weight.svg" alt="">
+                        </div>
+                        <div class="filter-height-img">
+                            <img src="./assets/img/large-weight.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button id="resetFilters">Reset filters</button>
+                    <button id="applyFilters">Apply filters</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pokemonModal" class="modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-container">
+                <button id="closeModal" class="close-modal">&times;</button>
+                <div id="modalBody">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
