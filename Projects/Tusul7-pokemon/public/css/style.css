@@ -181,7 +181,8 @@ input::placeholder{
     border-radius: 20px;
     font-size: 14px;
     text-transform: capitalize;
-    z-index: 2;
+
+    transition: all 0.2s ease;
 }
 
 .type-icon {

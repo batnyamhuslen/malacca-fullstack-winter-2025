@@ -73,18 +73,27 @@ function createCard(data) {
 
     const imageWrapper = document.createElement('div');
     imageWrapper.className = 'image-wrapper';
-    imageWrapper.innerHTML = `<img src="${data.sprites.other['official-artwork'].front_default}">`;
+    imageWrapper.innerHTML = `
+        <img src="${data.sprites.other['official-artwork'].front_default}">
+    `;
 
     const typesWrapper = document.createElement('div');
     typesWrapper.className = 'types';
+
     data.types.forEach(t => {
         const type = t.type.name;
+
         const tag = document.createElement('span');
         tag.className = 'type';
         tag.dataset.type = type;
-        tag.style.background = 'rgba(255,255,255,0.35)';
-        tag.style.backdropFilter = 'blur(4px)';
-        tag.innerHTML = `<img class="type-icon" src="${TYPE_ICONS[type]}"><span>${type}</span>`;
+        tag.style.background = TYPE_STYLES[type]?.tag || '#CBCBCB';
+        tag.style.color = '#000';
+
+        tag.innerHTML = `
+            <img class="type-icon" src="${TYPE_ICONS[type]}">
+            <span>${type}</span>
+        `;
+
         typesWrapper.appendChild(tag);
     });
 
@@ -96,23 +105,22 @@ function createCard(data) {
     extraIcon.style.left = '-10px';
     extraIcon.style.width = '90px';
     extraIcon.style.height = '90px';
+
     card.appendChild(extraIcon);
 
+
     card.addEventListener('mouseenter', () => {
-        card.querySelectorAll('.type').forEach(t => {
-            const type = t.dataset.type;
-            t.style.background = TYPE_STYLES[type]?.tag || '#CBCBCB';
-            t.style.backdropFilter = 'none';
-        });
+        card.style.transform = 'translateY(-5px) scale(1.02)';
+        card.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
     });
+
     card.addEventListener('mouseleave', () => {
-        card.querySelectorAll('.type').forEach(t => {
-            t.style.background = 'rgba(255,255,255,0.35)';
-            t.style.backdropFilter = 'blur(4px)';
-        });
+        card.style.transform = 'translateY(0) scale(1)';
+        card.style.boxShadow = 'none';
     });
 
     card.addEventListener('click', () => openModal(data));
+
     card.append(header, imageWrapper, typesWrapper);
     return card;
 }
@@ -122,7 +130,7 @@ function render() {
     main.innerHTML = '';
     let list = [...state.POKEMON_DETAILS];
 
-    // Apply search filter
+
     if (state.CURRENT_SEARCH) {
         const search = state.CURRENT_SEARCH.toLowerCase();
         list = list.filter(p =>
@@ -131,14 +139,14 @@ function render() {
         );
     }
 
-    // Apply type filters
+   
     if (state.SELECTED_TYPES.length) {
         list = list.filter(p =>
             p.types.some(t => state.SELECTED_TYPES.includes(t.type.name))
         );
     }
 
-    // Apply sorting
+  
     switch (state.CURRENT_SORT) {
         case 'id-desc':
             list.sort((a, b) => b.id - a.id);
@@ -153,7 +161,7 @@ function render() {
             list.sort((a, b) => a.id - b.id);
     }
 
-    // Reset pagination and state
+
     state.CURRENT_PAGE = 0;
     state.IS_LOADING = false;
     state.FILTERED_LIST = list;
@@ -168,7 +176,6 @@ function renderPage() {
 
     pageItems.forEach(p => main.appendChild(createCard(p)));
 
-    // Add loading indicator if there are more items
     if (end < state.FILTERED_LIST.length) {
         const loadingDiv = document.createElement('div');
         loadingDiv.id = 'loading-indicator';
@@ -176,7 +183,7 @@ function renderPage() {
         loadingDiv.innerHTML = '<img src="assets/img/loader.svg" alt="Loading..." class="loader-img">';
         main.appendChild(loadingDiv);
         
-        // Observe the new loader
+
         if (state.OBSERVER) {
             state.OBSERVER.observe(loadingDiv);
         }
@@ -296,7 +303,7 @@ async function openModal(pokemon) {
 }
 
 function setupInfiniteScroll() {
-    // Disconnect old observer if it exists
+
     if (state.OBSERVER) {
         state.OBSERVER.disconnect();
         state.OBSERVER = null;
@@ -329,7 +336,7 @@ function setupInfiniteScroll() {
                         const oldLoader = document.getElementById('loading-indicator');
                         if (oldLoader) oldLoader.remove();
 
-                        // Add new loader if there are more items
+                    
                         if ((start + state.ITEMS_PER_PAGE) < state.FILTERED_LIST.length) {
                             const loadingDiv = document.createElement('div');
                             loadingDiv.id = 'loading-indicator';
