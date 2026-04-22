@@ -93,44 +93,6 @@ const blogs = [
   },
 ];
 
-// const mainElement = document.querySelector("main");
-// const inputResult = document.getElementById("input-result");
-// const sentinel = document.getElementById("sentinel");
-// let visiblbeCount = 5;
-// let currentFilter = ""
-
-// function displayBlogs(filterText = "") {
-
-//   mainElement.innerHTML = "";
-
-//   for (let i = 0; i < blogs.length; i++) {
-//     const blog = blogs[i];
-//     const title = blog.title.toLowerCase();
-//     const body = blog.body.toLowerCase();
-//     const search = filterText.toLowerCase();
-
-//     if (title.includes(search) || body.includes(search)) {
-//       const card = document.createElement("div");
-//       card.className = "blog-card";
-
-//       card.innerHTML = `
-//                 <div class="blog-index">${i + 1}</div>
-//                 <div class="blog-content">
-//                     <h1>${blog.title}</h1>
-//                     <p>${blog.body}</p>
-//                 </div>
-//             `;
-//       mainElement.appendChild(card);
-//     }
-
-//   }
-// }
-
-// displayBlogs();
-
-// inputResult.addEventListener("input", (e) => {
-//   displayBlogs(e.target.value);
-// });
 
 const gridContainer = document.getElementById("grid-container");
 const loadingMsg = document.getElementById("loading-msg");
