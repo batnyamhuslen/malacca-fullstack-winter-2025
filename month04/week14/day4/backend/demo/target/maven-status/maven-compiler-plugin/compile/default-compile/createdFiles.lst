@@ -1,0 +1,15 @@
+mn/icode/InMemoryGradeRepository.class
+mn/icode/Course.class
+mn/icode/GradeService.class
+mn/icode/InMemoryStudentRepository.class
+mn/icode/util/CsvReader.class
+mn/icode/InMemoryCourseRepository.class
+mn/icode/CourseService.class
+mn/icode/GradeRepository.class
+mn/icode/StudentRepository.class
+mn/icode/Grade.class
+mn/icode/CourseRepository.class
+mn/icode/App.class
+mn/icode/ValidationException.class
+mn/icode/StudentService.class
+mn/icode/Student.class
