@@ -14,6 +14,8 @@ mvn clean javafx:run
 
 <!-- maven compile -->
 mvn clean compile exec:java -Dexec.mainClass="mn.icode.App"
+<!--spring-boot compile run -->
+mvn spring-boot:run
 
 <!-- firebase -->
 ~/.bashrc

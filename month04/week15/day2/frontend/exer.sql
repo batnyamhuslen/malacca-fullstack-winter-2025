@@ -98,23 +98,60 @@ WHERE f.film_id IN (
     JOIN category c ON fc.category_id = c.category_id
     WHERE c.name IN ('Horror', 'Sci-Fi')
 )
-ORDER BY f.rating, f.rental_rate;
+ORDER BY f.rating, f.rental_rate;    
 
+--3.2
+SELECT title, rating, rental_rate
+FROM film
+WHERE film_id NOT IN (
+    SELECT film_id
+    FROM inventory
+    WHERE film_id IS NOT NULL
+)
+ORDER BY title;
 
+--3.3
 
+SELECT title, rating
+FROM film
+WHERE film_id NOT IN (
+    SELECT i.film_id
+    FROM rental r
+    JOIN inventory i ON r.inventory_id = i.inventory_id
+    WHERE r.rental_date >= '2005-07-01'
+      AND r.rental_date <  '2005-08-01'
+      AND i.film_id IS NOT NULL
+)
+ORDER BY title
+LIMIT 10;
 
+--4.1
+SELECT f.title, f.rental_rate
+FROM film f
+JOIN film_category fc ON f.film_id = fc.film_id
+JOIN category c ON fc.category_id = c.category_id
+WHERE c.name = 'Comedy'
+  AND f.rental_rate > (
+      SELECT AVG(f2.rental_rate)
+      FROM film f2
+      JOIN film_category fc2 ON f2.film_id = fc2.film_id
+      JOIN category c2 ON fc2.category_id = c2.category_id
+      WHERE c2.name = 'Action'
+  )
+ORDER BY f.rental_rate DESC;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+--4.2
+SELECT title, rating
+FROM film
+WHERE film_id IN (
+    SELECT film_id
+    FROM inventory
+    WHERE store_id = 1
+)
+AND film_id IN (
+    SELECT film_id
+    FROM inventory
+    WHERE store_id = 2
+)
+ORDER BY title
+LIMIT 10;
