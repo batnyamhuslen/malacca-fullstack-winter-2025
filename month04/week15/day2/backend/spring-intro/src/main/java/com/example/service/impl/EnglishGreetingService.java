@@ -1,10 +1,18 @@
 package com.example.service.impl;
 
-import com.example.service.GreetingService;
 import org.springframework.stereotype.Component;
+
+import com.example.service.GreetingService;
+
+import jakarta.annotation.PostConstruct;
 
 @Component("englishGreeting")
 public class EnglishGreetingService implements GreetingService {
+
+    @PostConstruct
+    public void init(){
+        System.out.println("[Bean created] EnglishGreetingService");
+    }
 
     @Override
     public String greet(String name) { return "Hello, " + name + "!"; }

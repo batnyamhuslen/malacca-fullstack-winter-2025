@@ -1,5 +1,7 @@
 com/example/service/impl/EnglishGreetingService.class
 com/example/service/GreetingService.class
+com/example/service/impl/RussianGreetingService.class
+com/example/service/impl/JapaneseGreetingService.class
 com/example/app/GreetingApp.class
 com/example/service/impl/MongolianGreetingService.class
 com/example/SpringIntroApplication.class
