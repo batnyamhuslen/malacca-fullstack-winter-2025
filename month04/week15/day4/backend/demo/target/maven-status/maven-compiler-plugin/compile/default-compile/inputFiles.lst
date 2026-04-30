@@ -1,0 +1,9 @@
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/Main.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/app/ShopApp.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/config/ShopConfig.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/NotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/PaymentProcessor.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/impl/EmailNotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/impl/PayPalPaymentProcessor.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/impl/SmsNotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day4/backend/demo/src/main/java/com/example/service/impl/StripePaymentProcessor.java

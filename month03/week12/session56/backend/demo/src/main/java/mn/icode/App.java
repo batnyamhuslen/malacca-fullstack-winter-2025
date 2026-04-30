@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import main.java.mn.icode.Student;
-
 public class App {
     public static void main(String[] args) {
         ArrayList<String> names = new ArrayList<>();
