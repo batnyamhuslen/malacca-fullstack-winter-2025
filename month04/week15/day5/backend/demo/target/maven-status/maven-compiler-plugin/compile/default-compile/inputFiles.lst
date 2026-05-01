@@ -1,0 +1,15 @@
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/OrderManagementApplication.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/ProductService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/model/Product.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/impl/SmsNotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/repository/OrderRepository.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/model/Customer.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/OrderService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/app/OrderManagementApp.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/model/Order.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/repository/CustomerRepository.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/impl/OrderServiceImpl.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/NotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/impl/EmailNotificationService.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/service/impl/ProductServiceImpl.java
+/Users/malacca/Desktop/malacca-fullstack-winter-2025/month04/week15/day5/backend/demo/src/main/java/com/example/ordermanagement/repository/ProductRepository.java
