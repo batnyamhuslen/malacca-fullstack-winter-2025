@@ -1,0 +1,4 @@
+com/example/App.class
+com/example/controller/FilmController.class
+com/example/model/Film.class
+com/example/repository/FilmRepository.class
