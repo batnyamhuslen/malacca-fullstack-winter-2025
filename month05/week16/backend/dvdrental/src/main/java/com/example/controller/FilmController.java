@@ -44,9 +44,10 @@ public class FilmController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/films/search")
-    public ResponseEntity<List<Film>> searchFilms(@RequestParam String title) {
-        return ResponseEntity.ok(filmRepository.findByTitle(title));
+    @GetMapping("/films/top-rented")
+    public ResponseEntity<List<Film>> getTopFilms(
+            @RequestParam(defaultValue = "10") int limit) {
+        return ResponseEntity.ok(filmRepository.findTopRented(limit));
     }
 
 }

@@ -47,14 +47,28 @@ public class FilmRepository {
         }
     }
 
-    public List<Film> findByTitle(String title) {
-        String sql = """
-                        select film_id, title, rating, rental_rate
-                        from film
-                        where title ILIKE ?
-                     """;
-        return jdbcTemplate.query(sql, filmRowMapper(), "%" + title + "%");
-    }
+public List<Film> findTopRented(int limit) {
+    String sql = """
+                    SELECT f.film_id, f.title, f.rating, f.rental_rate,
+                           COUNT(r.rental_id) AS rental_count
+                    FROM film f
+                    JOIN inventory i ON f.film_id = i.film_id
+                    JOIN rental r    ON i.inventory_id = r.inventory_id
+                    GROUP BY f.film_id, f.title, f.rating, f.rental_rate
+                    ORDER BY rental_count DESC
+                    LIMIT ?
+                 """;
+    return jdbcTemplate.query(sql, filmRowMapper(), limit);
+}
+
+    // public List<Film> topRented(double rental_rate){
+    //     String sql= """
+    //                  select f.rental_rate, f.title from film 
+    //                  order by  asc
+    //                  limit 20;
+    //             """;
+    //     return jdbcTemplate.query(sql,filmRowMapper(), rental_rate);        
+    // }
 
     private RowMapper<Film> filmRowMapper() {
         return (rs, rowNum) -> {
@@ -66,4 +80,6 @@ public class FilmRepository {
             return f;
         };
     }
+
+
 }
