@@ -1,0 +1,4 @@
+com/example/controller/ActorController.class
+com/example/model/Actor.class
+com/example/repository/ActorRepository.class
+com/example/App.class
