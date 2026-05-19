@@ -1,0 +1,19 @@
+{
+  "name": "hello-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"tsc",
+    "watch":"tsc --watch",
+    "start":"npx http-server ."
+  },
+
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+
+  "author": "khangaikhuu uvgunkhuu",
+  "license": "MIT",
+  "type": "module"
+}
