@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>DVD Rental Dashboard</h2>
+
+    <div class="toolbar">
+        <input type="text" placeholder="Search catalog titles or description notes..." (input)="onSearch($event)"
+            class="search-input" />
+
+        <div class="sort-wrapper">
+            <label for="sort">Sorting Strategy</label>
+            <select id="sort" (change)="onSortChange($event)">
+                <option value="title,asc">Title Name (A-Z)</option>
+                <option value="title,desc">Title Name (Z-A)</option>
+                <option value="length,asc">Movie Runtime (Shortest)</option>
+                <option value="length,desc">Movie Runtime (Longest)</option>
+                <option value="rentalRate,desc">Pricing Order (Highest)</option>
+            </select>
+        </div>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Release Year</th>
+                <th>Duration</th>
+                <th>Rental Rate</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let film of films">
+                <td class="bold-title">{{film.title}}</td>
+                <td>{{film.description}}</td>
+                <td>{{film.releaseYear}}</td>
+                <td>{{film.length}}</td>
+                <td>{{film.rentalRate}}</td>
+                <td>
+                    <span class="badge">
+                        {{film.rating}}
+                    </span>
+                </td>
+            </tr>
+            <tr *ngIf="films.length === 0">
+                <td colspan="6" class="no-data">No films found</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <button [disabled]="currentPage === 0" (click)="changePage(currentPage - 1)">
+            Previous
+        </button>
+        <span>Page {{currentPage + 1}} of {{totalPages}}</span>
+        <button [disabled]="currentPage >= totalPages - 1" (click)="changePage(currentPage + 1)">
+            Next
+        </button>
+    </div>
+</div>

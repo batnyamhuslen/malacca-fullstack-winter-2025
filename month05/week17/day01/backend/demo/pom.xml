@@ -44,7 +44,6 @@
             <scope>compile</scope>
         </dependency>
 
-
         <!-- PostgreSQL driver (runtime only — not needed at compile time) -->
         <dependency>
             <groupId>org.postgresql</groupId>

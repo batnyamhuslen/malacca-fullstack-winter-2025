@@ -1,0 +1,6 @@
+com/example/App.class
+com/example/dto/FilmDto.class
+com/example/repository/FilmRepository.class
+com/example/repository/FilmService.class
+com/example/controller/FilmController.class
+com/example/model/Film.class
