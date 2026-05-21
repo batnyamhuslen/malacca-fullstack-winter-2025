@@ -1,0 +1,98 @@
+<!-- contact-form.component.html -->
+<div class="contact-form-container">
+  <h2>Contact Us</h2>
+
+  <form *ngIf="!submitted" (ngSubmit)="onSubmit()">
+    <!-- Name Input -->
+    <div class="form-group">
+      <label for="name">Name *</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="formData.name"
+        name="name"
+        placeholder="Enter your name"
+        [class.error]="formData.name.length === 0">
+      <span *ngIf="formData.name.length === 0" class="error-text">
+        Name is required
+      </span>
+    </div>
+
+    <!-- Email Input -->
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="formData.email"
+        name="email"
+        placeholder="Enter your email">
+    </div>
+
+    <!-- Subject Input -->
+    <div class="form-group">
+      <label for="subject">Subject</label>
+      <input
+        type="text"
+        id="subject"
+        [(ngModel)]="formData.subject"
+        name="subject"
+        placeholder="Enter subject">
+    </div>
+
+    <!-- Priority Select -->
+    <div class="form-group">
+      <label for="priority">Priority</label>
+      <select id="priority" [(ngModel)]="formData.priority" name="priority">
+        <option *ngFor="let p of priorities" [value]="p">
+          {{ p | titlecase }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Message Textarea -->
+    <div class="form-group">
+      <label for="message">Message *</label>
+      <textarea
+        id="message"
+        [(ngModel)]="formData.message"
+        name="message"
+        rows="5"
+        placeholder="Enter your message"></textarea>
+      <span class="char-count">{{ formData.message.length }} characters</span>
+    </div>
+
+    <!-- Subscribe Checkbox -->
+    <div class="form-group checkbox">
+      <label>
+        <input
+          type="checkbox"
+          [(ngModel)]="formData.subscribe"
+          name="subscribe">
+        Subscribe to newsletter
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!isFormValid()">
+      Send Message
+    </button>
+  </form>
+
+  <!-- Success Message -->
+  <div *ngIf="submitted" class="success-message">
+    <h3>Thank you, {{ submittedData?.name }}!</h3>
+    <p>Your message has been sent.</p>
+
+    <div class="submitted-data">
+      <h4>Submitted Information:</h4>
+      <p><strong>Email:</strong> {{ submittedData?.email }}</p>
+      <p><strong>Subject:</strong> {{ submittedData?.subject || 'No subject' }}</p>
+      <p><strong>Priority:</strong> {{ submittedData?.priority | titlecase }}</p>
+      <p><strong>Message:</strong> {{ submittedData?.message }}</p>
+      <p><strong>Newsletter:</strong> {{ submittedData?.subscribe ? 'Yes' : 'No' }}</p>
+    </div>
+
+    <button (click)="resetForm()">Send Another Message</button>
+  </div>
+</div>
