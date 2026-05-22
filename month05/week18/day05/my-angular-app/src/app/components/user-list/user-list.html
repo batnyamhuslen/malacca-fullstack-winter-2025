@@ -1,0 +1,36 @@
+<div class="user-list">
+  <h2>Хэрэглэгчид</h2>
+
+  
+  @if (loading) {
+    <p>Ачааллаж байна......</p>
+  }
+
+  <!-- Алдаа гарсан -->
+  @if (errorMessage && !loading) {
+    <div class="error" style="color: red;">
+      <p>{{ errorMessage }}</p>
+      <p>Шалгах:</p>
+      <ul>
+        <li>Spring Boot ажиллаж байна уу? (localhost:8080)</li>
+        <li>CORS тохиргоо зөв үү?</li>
+        <li>URL зөв бичсэн үү?</li>
+      </ul>
+    </div>
+  }
+
+  <!-- Хэрэглэгчдийн жагсаалт -->
+  @if (!loading && !errorMessage) {
+    <ul>
+      @for (user of users; track user.id) {
+        <li>
+          <strong>{{ user.name }}</strong> — {{ user.email }}
+        </li>
+      }
+    </ul>
+
+    @if (users.length === 0) {
+      <p>Хэрэглэгч олдсонгүй. Backend-д өгөгдөл нэмээрэй.</p>
+    }
+  } 
+</div>

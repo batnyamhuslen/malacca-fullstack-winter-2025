@@ -1,0 +1,250 @@
+/* Хувьсагчууд - Өнгөний коднуудыг удирдах */
+:host {
+  --bg-main: #f8fafc;
+  --bg-sidebar: #0f172a; /* Гүн хөх/хар өнгөтэй маш гоё sidebar */
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  
+  display: block;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+textarea {
+  vertical-align: top;
+  padding-top: 10px;
+}
+/* Бүтэц */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Зүүн талын Sidebar - Дээд зэрэглэлийн дизайн */
+.sidebar {
+  background-color: var(--bg-sidebar);
+  display: flex;
+  flex-direction: column;
+  color: #f1f5f9;
+  border-right: 1px solid #1e293b;
+}
+
+.sidebar-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem 0;
+}
+
+/* Sidebar-ийн доод хэсэг */
+.sidebar-footer {
+  padding: 1.25rem;
+  background-color: #0b0f19;
+  border-top: 1px solid #1e293b;
+}
+
+.current-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar-static {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+}
+
+.user-info h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+/* Баруун талын Ажлын талбар */
+.main-workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-navbar {
+  background-color: #ffffff;
+  padding: 1.5rem 2.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.page-title p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.icon-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-main);
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+/* Үндсэн бие */
+.workspace-body {
+  flex: 1;
+  padding: 2.5rem;
+  overflow-y: auto;
+  background-color: #f8fafc;
+}
+
+/* Шилэн эффекттэй үндсэн карт */
+.glass-view-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  min-height: 80vh;
+}
+
+/* 📱 Responsive Шийдэл */
+@media (max-width: 992px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none; /* Утан дээр хажуугийн цэсийг нууж, доод хэсгийг чөлөөлнө */
+  }
+  .top-navbar {
+    padding: 1.25rem 1.5rem;
+  }
+  .workspace-body {
+    padding: 1.25rem;
+  }
+}
+
+/* 📱 iPhone 15 Pro болон Орчин үеийн ухаалаг утаснуудад зориулсан High-End шийдэл */
+@media (max-width: 430px) {
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Sidebar-ийг нууж, босоо бүтэц рүү шилжинэ */
+    height: auto;
+    overflow: visible;
+  }
+
+  /* Хажуугийн цэсийг утан дээр дээд талд нь жижиг, цэвэрхэн болгоно */
+  .sidebar {
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #1e293b;
+  }
+  
+  .sidebar-header {
+    padding: 1.25rem 1rem; /* Спейсийг нь багасгаж iPhone-ийн дэлгэцэнд тааруулав */
+  }
+
+  /* Хэрэглэгчийн жагсаалтыг утан дээр хэвтээгээр гулсдаг (Horizontal Scroll) болгож өөрчлөв */
+  .sidebar-content {
+    padding: 0.5rem 1rem;
+  }
+  
+  app-user-list .users-stack {
+    display: flex;
+    flex-direction: row; /* Босоо биш, хэвтээ чиглэлтэй болгоно */
+    overflow-x: auto;   /* Хажуу тийшээ хуруугаараа гүйлгэж харна */
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    scroll-linecap: round;
+    -webkit-overflow-scrolling: touch; /* iOS дээр маш зөөлөн гулсдаг болгоно */
+  }
+
+  app-user-list .user-row {
+    flex: 0 0 260px; /* Карт болгоныг тогтмол 260px өргөнтэй болгож хажуу тийш цувуулна */
+    background: #1e293b;
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .sidebar-footer {
+    display: none; /* Утан дээр админы мэдээллийг нууж зай хэмнэнэ */
+  }
+
+  /* 2. Үндсэн ажлын талбар (iPhone 15 Pro дэлгэцийн дээд захын зайг тааруулах) */
+  .top-navbar {
+    padding: 1.25rem 1rem;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .page-title h1 {
+    font-size: 1.25rem; /* Гарчигны хэмжээг утасныхаар жижигсгэв */
+  }
+
+  .page-title p {
+    font-size: 0.75rem;
+  }
+
+  /* Үндсэн контент орж ирэх хэсэг */
+  .workspace-body {
+    padding: 1rem; /* Хажуу талын шахалт 16px буюу яг утасны стандарт */
+    background-color: #f8fafc;
+  }
+
+  /* Рүүтерээр орж ирэх шилэн карт (iPhone дээр бүтэн дэлгэцээр харагдана) */
+  .glass-view-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    min-height: calc(100vh - 200px); /* Утасны өндөрт автоматаар таарна */
+  }
+}

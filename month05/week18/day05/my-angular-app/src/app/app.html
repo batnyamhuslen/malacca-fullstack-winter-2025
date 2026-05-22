@@ -1,0 +1,59 @@
+<div class="dashboard-container">
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5">
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+        <span>CORE APP</span>
+      </div>
+    </div>
+
+    <div class="sidebar-content">
+      <app-user-list></app-user-list>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="current-user">
+        <div class="avatar-static">A</div>
+        <div class="user-info">
+          <h4>Админ Самбар</h4>
+          <p>admin@core.mn</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-workspace">
+    <header class="top-navbar">
+      <div class="page-title">
+        <h1>Үндсэн ажлын талбар</h1>
+        <p>Системийн модулиуд болон удирдлага</p>
+      </div>
+      <div class="navbar-actions">
+        <button class="icon-btn" aria-label="Мэдэгдэл">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace-body">
+      <div class="glass-view-card">
+
+        <textarea style="width: 520px; height: 1000px;"></textarea>
+
+        <router-outlet />
+      </div>
+    </main>
+  </div>
+
+</div>
