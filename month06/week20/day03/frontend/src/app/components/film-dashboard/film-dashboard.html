@@ -1,0 +1,60 @@
+<div class="dashboard-wrapper">
+  <h2>DVD Rental Film Dashboard</h2>
+
+  <div class="filter-bar">
+    <input 
+      #searchInput
+      type="text" 
+      placeholder="Type movie titles or description keywords..." 
+      (input)="onSearchChange(searchInput.value)" />
+  </div>
+
+  @if (isLoading) {
+    <div class="loading-state">Querying database engine...</div>
+  }
+
+  @if (filmsPage$ | async; as pageData) {
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Release Year</th>
+          <th>Rental Cost</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (film of pageData.content; track film.filmId) {
+          <tr>
+            <td>{{ film.filmId }}</td>
+            <td><strong>{{ film.title }}</strong></td>
+            <td>{{ film.releaseYear }}</td>
+            <td>${{ film.rentalRate }}</td>
+            <td><span class="badge">{{ film.rating }}</span></td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" class="empty-row">No films match your search terms.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="pagination-controls">
+      <button 
+        [disabled]="pageData.number === 0" 
+        (click)="onPageChange(pageData.number - 1)">
+        Previous
+      </button>
+      
+      <span>Page {{ pageData.number + 1 }} of {{ pageData.totalPages }}</span>
+      
+      <button 
+        [disabled]="pageData.number + 1 >= pageData.totalPages" 
+        (click)="onPageChange(pageData.number + 1)">
+        Next
+      </button>
+    </div>
+  }
+</div>
